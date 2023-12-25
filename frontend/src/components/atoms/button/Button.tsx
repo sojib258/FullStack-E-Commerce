@@ -5,28 +5,20 @@ import styles from "./button.module.scss";
 interface ButtonProps {
   text: string;
   onClick?: () => void;
-  onChange?: () => void;
-  onBlur?: () => void;
   arrowIcon?: boolean;
   style?: object;
+  screenSize?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
   text,
   onClick,
-  onChange,
-  onBlur,
-  arrowIcon,
+  arrowIcon = false,
   style,
+  screenSize = "md",
 }) => {
   return (
-    <MuiButton
-      className={styles.btn}
-      onClick={onClick}
-      onChange={onChange}
-      onBlur={onBlur}
-      sx={style}
-    >
+    <MuiButton className={styles.btn} onClick={onClick} sx={style}>
       {text}
       {arrowIcon && <ArrowForwardIcon className={styles.arrowIcon} />}
     </MuiButton>

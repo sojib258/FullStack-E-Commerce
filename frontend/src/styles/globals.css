@@ -5,7 +5,9 @@
 }
 body,
 p,
-button {
+span,
+button,
+input {
   font-family: "__Poppins_cd4a41", "__Poppins_Fallback_cd4a41" !important;
 }
 
