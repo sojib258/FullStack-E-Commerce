@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,
+p,
+button {
+  font-family: "__Poppins_cd4a41", "__Poppins_Fallback_cd4a41" !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "__Roboto_a17896', '__Roboto_Fallback_a17896" !important;
+}
