@@ -3,22 +3,24 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import styles from "./inputText.module.scss";
 
-interface InputProps {
+interface SearchInputProps {
   label?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: () => void;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   onFocus?: () => void;
   value?: string | number;
   type?: "text" | "password";
+  customStyle?: object;
 }
 
-const InputText: React.FC<InputProps> = ({
+const SearchInput: React.FC<SearchInputProps> = ({
   label,
   value,
   type,
   onChange,
   onBlur,
   onFocus,
+  customStyle,
 }) => {
   const [focused, setFocused] = useState(false);
 
@@ -27,9 +29,11 @@ const InputText: React.FC<InputProps> = ({
     onFocus && onFocus();
   };
 
-  const handleBlur = () => {
-    setFocused(!!value || false); // Update focused based on whether value is present
-    onBlur && onBlur();
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (!value) {
+      setFocused(false);
+    }
+    onBlur && onBlur(e);
   };
 
   return (
@@ -46,9 +50,10 @@ const InputText: React.FC<InputProps> = ({
         onBlur={handleBlur}
         onFocus={handleFocus}
         value={value}
+        style={customStyle}
       />
     </div>
   );
 };
 
-export default InputText;
+export default SearchInput;
