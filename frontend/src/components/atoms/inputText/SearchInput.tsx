@@ -1,58 +1,53 @@
 // InputText.tsx
-import SearchIcon from "@mui/icons-material/Search";
-import { useState } from "react";
-import styles from "./inputText.module.scss";
-
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Image from "next/image";
+import "../../../styles/ovverrideMuiStyle.css";
 interface SearchInputProps {
   label?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (value: string) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   onFocus?: () => void;
   value?: string | number;
-  type?: "text" | "password";
+  type?: "text" | "email" | "password";
   customStyle?: object;
+  icon?: boolean;
 }
 
 const SearchInput: React.FC<SearchInputProps> = ({
-  label,
   value,
   type,
+  label,
+  icon = false,
   onChange,
   onBlur,
   onFocus,
   customStyle,
 }) => {
-  const [focused, setFocused] = useState(false);
-
-  const handleFocus = () => {
-    setFocused(true);
-    onFocus && onFocus();
-  };
-
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    if (!value) {
-      setFocused(false);
-    }
-    onBlur && onBlur(e);
-  };
-
   return (
-    <div className={`${styles.input} ${focused ? styles.focused : ""}`}>
-      <label className={styles.input__label} htmlFor="input">
-        {label}
-      </label>
-      <SearchIcon className={styles.input__searchIcon} />
-      <input
-        className={styles.input__text}
-        id="input"
-        type={type}
-        onChange={onChange}
-        onBlur={handleBlur}
-        onFocus={handleFocus}
-        value={value}
-        style={customStyle}
-      />
-    </div>
+    <>
+      <Box sx={customStyle} className={icon ? "searchInput" : ""}>
+        <TextField
+          className="atom-text-field"
+          label={label}
+          variant="outlined"
+          onChange={(e) => onChange && onChange(e.target.value)}
+          onBlur={onBlur}
+          onFocus={onFocus}
+          value={value}
+          type={type}
+        />
+        {icon && (
+          <Image
+            className={"searchInput__icon"}
+            width={20}
+            height={20}
+            src={"/search.svg"}
+            alt="search-icon"
+          />
+        )}
+      </Box>
+    </>
   );
 };
 

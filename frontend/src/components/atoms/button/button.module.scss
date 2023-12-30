@@ -1,8 +1,7 @@
 @import "../../../styles/all.module.scss";
 
 .btn {
-  padding: 8px 25px;
-  border-radius: 43px;
+  padding: 8px 15px;
   text-transform: none;
   background-color: $primary;
   color: $white;
@@ -17,13 +16,9 @@
     font-size: 1rem;
     color: $white;
     margin-left: 3px;
+    margin-top: 1px;
   }
   &:hover {
     background-color: $hardPrimary;
   }
-}
-
-.smallScreen {
-  padding: 6px 15px;
-  font-size: 0.8rem;
 }

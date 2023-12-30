@@ -21,21 +21,10 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <>
-      {outlined ? (
-        <MuiButton
-          className={styles.outLineBtn}
-          onClick={onClick}
-          sx={customStyle}
-        >
-          {text}
-          {arrowIcon && <ArrowForwardIcon className={styles.arrowIcon} />}
-        </MuiButton>
-      ) : (
-        <MuiButton className={styles.btn} onClick={onClick} sx={customStyle}>
-          {text}
-          {arrowIcon && <ArrowForwardIcon className={styles.arrowIcon} />}
-        </MuiButton>
-      )}
+      <MuiButton className={styles.btn} onClick={onClick} sx={customStyle}>
+        {text}
+        {arrowIcon && <ArrowForwardIcon className={styles.arrowIcon} />}
+      </MuiButton>
     </>
   );
 };
