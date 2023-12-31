@@ -5,6 +5,7 @@ import Badge from "@mui/material/Badge";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import styles from "./navbarIcon.module.scss";
 const NavbarIcon = () => {
@@ -16,33 +17,38 @@ const NavbarIcon = () => {
       sx={{ display: "flex", alignItems: "center" }}
     >
       {/* WishList Icon ================== */}
-      <IconButton
-        size="large"
-        aria-label="show 4 new mails"
-        color="inherit"
-        sx={{ marginRight: "10px", "&:hover": { backgroundColor: "#e6e6e6" } }}
-        title="wishlist"
-      >
-        <Badge badgeContent={4} color="success">
-          <FavoriteBorderIcon sx={{ color: "#1a1a1a" }} />
-        </Badge>
-      </IconButton>
+      <Tooltip className={styles.tooltip} arrow title="Wishlist">
+        <IconButton
+          size="large"
+          aria-label="show 4 new mails"
+          color="inherit"
+          sx={{
+            marginRight: "10px",
+            "&:hover": { backgroundColor: "#e6e6e6" },
+          }}
+        >
+          <Badge badgeContent={4} color="success">
+            <FavoriteBorderIcon sx={{ color: "#1a1a1a" }} />
+          </Badge>
+        </IconButton>
+      </Tooltip>
 
       {/* Shopping Cart Icon =================== */}
-      <IconButton
-        size="large"
-        aria-label="show 17 new notifications"
-        color="inherit"
-        sx={{
-          marginRight: "20px",
-          "&:hover": { backgroundColor: "#e6e6e6" },
-        }}
-        title="cart item"
-      >
-        <Badge badgeContent={17} color="success" sx={{}}>
-          <ShoppingCartOutlinedIcon sx={{ color: "#1a1a1a" }} />
-        </Badge>
-      </IconButton>
+      <Tooltip className={styles.tooltip} title="Cart Item" arrow>
+        <IconButton
+          size="large"
+          aria-label="show 17 new notifications"
+          color="inherit"
+          sx={{
+            marginRight: "20px",
+            "&:hover": { backgroundColor: "#e6e6e6" },
+          }}
+        >
+          <Badge badgeContent={17} color="success" sx={{}}>
+            <ShoppingCartOutlinedIcon sx={{ color: "#1a1a1a" }} />
+          </Badge>
+        </IconButton>
+      </Tooltip>
 
       {/* Login Button ================= */}
       <Button

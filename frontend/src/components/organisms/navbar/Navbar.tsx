@@ -4,16 +4,14 @@ import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Image from "next/image";
-import NavbarIcon from "../molecules/navbarIcon/NavbarIcon";
-import SearchBar from "../molecules/searchBar/SearchBar";
+import NavbarIcon from "../../molecules/navbarIcon/NavbarIcon";
+import SearchBar from "../../molecules/searchBar/SearchBar";
 import styles from "./navbar.module.scss";
 
 const Navbar = () => {
   const mediumScreen = useMediaQuery("(min-width:900px)");
   const smallScreen = useMediaQuery("(min-width:600px)");
 
-  console.log("Sm", smallScreen);
-  // ${!smallScreen && styles.navbarSm}
   return (
     <Box className={styles.navbar}>
       <AppBar position="static">

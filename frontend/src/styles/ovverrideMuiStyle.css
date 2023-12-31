@@ -2,16 +2,8 @@
 =            These Styles for Overrite Material Ui            =
 =============================================*/
 
-/* This is for Search Input in Atoms Component*/
-.searchInput {
-  position: relative;
-}
-.searchInput__icon {
-  position: absolute;
-  top: 12px;
-  left: 15px;
-}
-.searchInput input {
+/* This is for InputText Component in Atoms */
+.inputText2 input {
   padding: 16.5px 10px 16.5px 42px;
 }
 .atom-text-field {
@@ -25,7 +17,7 @@
   top: -5px;
   transition: 0.4s;
 }
-.searchInput .atom-text-field label {
+.inputText2 .atom-text-field label {
   left: 25px;
 }
 .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
@@ -53,6 +45,45 @@
   border-color: #2b572e;
   border-width: 2px;
 }
+.css-14lo706 > span {
+  font-size: 0.65rem;
+}
+/* small screen */
+.inputTextSmallScreen .atom-text-field {
+  height: 35px;
+}
+.inputTextSmallScreen .atom-text-field div {
+  height: 35px;
+}
+.inputTextSmallScreen .atom-text-field label {
+  top: -7px;
+  font-size: 0.75rem;
+}
+.inputTextSmallScreen input {
+  font-size: 0.8rem;
+}
+.inputTextSmallScreen.inputText2 .atom-text-field label {
+  left: 18px;
+}
+.inputTextSmallScreen.inputText2 .atom-text-field input {
+  padding: 16.5px 10px 16.5px 35px;
+}
+.inputTextSmallScreen
+  .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+  -webkit-transform: translate(14px, 1px) scale(0.75) !important;
+  -moz-transform: translate(14px, 1px) scale(0.75) !important;
+  -ms-transform: translate(14px, 1px) scale(0.75) !important;
+  transform: translate(14px, 1px) scale(0.75) !important;
+}
+.inputTextSmallScreen .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root {
+  -webkit-transform: translate(14px, 1px) scale(0.75) !important;
+  -moz-transform: translate(14px, 1px) scale(0.75) !important;
+  -ms-transform: translate(14px, 1px) scale(0.75) !important;
+  transform: translate(14px, 1px) scale(0.75) !important;
+}
+.inputTextSmallScreen .css-14lo706 > span {
+  font-size: 0.5rem;
+}
 
 /* This is for Location component in molecules */
 .css-11h6kcg-MuiButtonBase-root-MuiAccordionSummary-root {
@@ -60,6 +91,53 @@
 }
 .css-1elwnq4-MuiPaper-root-MuiAccordion-root {
   box-shadow: none;
+}
+
+/* This Is for Tooltip in header icons */
+.MuiTooltip-arrow {
+  color: #00b207;
+}
+.MuiTooltip-tooltip {
+  background-color: #00b207;
+  color: white;
+}
+
+/* This is for login form */
+.MuiCheckbox-colorPrimary {
+  color: #4d4d4d;
+}
+.MuiFormGroup-root .css-i4bv87-MuiSvgIcon-root {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.login_smallScreen .MuiFormGroup-root .css-i4bv87-MuiSvgIcon-root {
+  width: 1rem;
+  height: 1rem;
+}
+.register_smallScreen .MuiFormGroup-root .css-i4bv87-MuiSvgIcon-root {
+  width: 1rem;
+  height: 1rem;
+}
+.MuiFormGroup-root .css-ahj2mt-MuiTypography-root {
+  color: #4d4d4d;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  text-transform: none;
+}
+.login_smallScreen .MuiFormGroup-root .css-ahj2mt-MuiTypography-root {
+  font-size: 12px;
+}
+.register_smallScreen .MuiFormGroup-root .css-ahj2mt-MuiTypography-root {
+  font-size: 12px;
+}
+.MuiFormGroup-root .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root {
+  padding: 9px 4px 9px 9px;
+}
+.MuiFormGroup-root
+  .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked {
+  color: #00b207;
 }
 
 /*=====  End of These Styles for Overrite Material Ui Styles  ======*/

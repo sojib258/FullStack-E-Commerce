@@ -7,7 +7,6 @@ interface ButtonProps {
   onClick?: () => void;
   arrowIcon?: boolean;
   customStyle?: object;
-  screenSize?: string;
   outlined?: boolean;
 }
 
@@ -16,16 +15,18 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   arrowIcon = false,
   customStyle,
-  screenSize = "md",
   outlined = false,
 }) => {
   return (
-    <>
-      <MuiButton className={styles.btn} onClick={onClick} sx={customStyle}>
-        {text}
-        {arrowIcon && <ArrowForwardIcon className={styles.arrowIcon} />}
-      </MuiButton>
-    </>
+    <MuiButton
+      className={styles.btn}
+      onClick={onClick}
+      sx={customStyle}
+      variant={outlined ? "outlined" : "contained"}
+    >
+      {text}
+      {arrowIcon && <ArrowForwardIcon className={styles.arrowIcon} />}
+    </MuiButton>
   );
 };
 

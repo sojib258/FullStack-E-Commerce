@@ -1,9 +1,11 @@
 // InputText.tsx
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import Image from "next/image";
 import "../../../styles/ovverrideMuiStyle.css";
-interface SearchInputProps {
+import styles from "./inputText.module.scss";
+interface InputTextProps {
   label?: string;
   onChange?: (value: string) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
@@ -14,7 +16,7 @@ interface SearchInputProps {
   icon?: boolean;
 }
 
-const SearchInput: React.FC<SearchInputProps> = ({
+const InputText: React.FC<InputTextProps> = ({
   value,
   type,
   label,
@@ -24,9 +26,16 @@ const SearchInput: React.FC<SearchInputProps> = ({
   onFocus,
   customStyle,
 }) => {
+  const smallScreen = useMediaQuery("(max-width:600px)");
+
   return (
     <>
-      <Box sx={customStyle} className={icon ? "searchInput" : ""}>
+      <Box
+        sx={customStyle}
+        className={`${styles.inputText} ${icon && "inputText2"} ${
+          smallScreen && "inputTextSmallScreen"
+        }`}
+      >
         <TextField
           className="atom-text-field"
           label={label}
@@ -39,10 +48,23 @@ const SearchInput: React.FC<SearchInputProps> = ({
         />
         {icon && (
           <Image
-            className={"searchInput__icon"}
+            className={`${styles.inputText__searchIcon} ${
+              smallScreen && styles.inputText__searchIcon_smallScreen
+            }`}
             width={20}
             height={20}
             src={"/search.svg"}
+            alt="search-icon"
+          />
+        )}
+        {type === "password" && (
+          <Image
+            className={`${styles.inputText__eyeIcon} ${
+              smallScreen && styles.inputText__eyeIcon_smallScreen
+            }`}
+            width={20}
+            height={20}
+            src={"/eye.svg"}
             alt="search-icon"
           />
         )}
@@ -51,4 +73,4 @@ const SearchInput: React.FC<SearchInputProps> = ({
   );
 };
 
-export default SearchInput;
+export default InputText;

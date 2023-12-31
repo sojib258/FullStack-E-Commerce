@@ -1,4 +1,4 @@
-import SearchInput from "@/components/atoms/inputText/SearchInput";
+import SearchInput from "@/components/atoms/inputText/InputText";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import Accordion from "@mui/material/Accordion";
@@ -8,10 +8,12 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { useState } from "react";
 import styles from "./location.module.scss";
 
 const Location: React.FC = () => {
+  const smallScreen = useMediaQuery("(max-width:600px)");
   const [expanded, setExpanded] = useState<string | false>(false);
   const [locationValue, setLocationValue] = useState<string>("");
   const [searchLocationValue, setSearchLocationValue] = useState<string>("");
@@ -132,7 +134,11 @@ const Location: React.FC = () => {
     };
 
   return (
-    <Box className={styles.location}>
+    <Box
+      className={`${styles.location} ${
+        smallScreen && styles.location_smallScreen
+      }`}
+    >
       <Typography
         sx={{
           fontSize: "1.1rem",

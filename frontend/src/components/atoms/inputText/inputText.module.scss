@@ -1,0 +1,23 @@
+.inputText {
+  position: relative;
+  &__searchIcon {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    &_smallScreen {
+      top: 9.6px;
+      height: 16px;
+      left: 10px;
+    }
+  }
+  &__eyeIcon {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    cursor: pointer;
+    &_smallScreen {
+      height: 16px;
+      top: 9.6px;
+    }
+  }
+}

@@ -3,7 +3,7 @@
   position: relative;
   border: none;
   border-radius: 25px;
-  max-width: 350px;
+  min-width: 550px;
   padding: 20px 25px;
   overflow: scroll;
   &__Item {
@@ -15,5 +15,9 @@
       border-bottom-left-radius: 25px;
       border-bottom-right-radius: 25px;
     }
+  }
+  // For small screen
+  &_smallScreen {
+    min-width: 300px;
   }
 }

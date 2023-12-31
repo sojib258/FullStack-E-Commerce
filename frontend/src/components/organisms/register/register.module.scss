@@ -1,0 +1,64 @@
+@import "../../../styles/all.module.scss";
+.register {
+  max-width: 520px;
+  padding: 24px 24px 32px 24px;
+  border-radius: 8px;
+  border: 1px solid $gray1;
+  background: $white;
+  box-shadow: 0px 0px 56px 0px rgba(0, 38, 3, 0.08);
+  text-align: center;
+  &__text {
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    margin-bottom: 20px;
+  }
+  &__checkboxGroup {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 20px;
+  }
+  &__forget {
+    color: $gray4;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    background-color: transparent;
+    text-transform: none;
+  }
+  &__haveAccount {
+    color: $gray4;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+  }
+  &__registerBtn {
+    color: $primary;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    text-transform: none;
+    padding: 0px 5px;
+    min-width: 0px;
+  }
+
+  // For Small Screen
+  &_smallScreen {
+    .register__text {
+      font-size: 26px;
+    }
+    .register__haveAccount {
+      font-size: 12px;
+    }
+    .register__registerBtn {
+      font-size: 12px;
+    }
+  }
+}

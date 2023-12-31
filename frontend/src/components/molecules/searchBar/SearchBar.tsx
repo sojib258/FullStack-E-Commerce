@@ -1,4 +1,4 @@
-import SearchInput from "@/components/atoms/inputText/SearchInput";
+import InputText from "@/components/atoms/inputText/InputText";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
@@ -43,7 +43,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
           flexDirection: "row",
         }}
       >
-        <SearchInput
+        <InputText
           label={label}
           type={type}
           value={value}
