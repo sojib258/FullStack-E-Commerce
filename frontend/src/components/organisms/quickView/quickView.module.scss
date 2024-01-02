@@ -1,0 +1,128 @@
+@import "../../../styles/all.module.scss";
+.quickView {
+  width: 1320px;
+  height: auto;
+  padding: 40px;
+  background-color: $white;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  &__leftContent {
+    min-width: 50%;
+    padding-right: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__sliderSection {
+    min-width: 80px;
+    max-width: 80px;
+    margin-right: 12px;
+  }
+  &__mainImageSection {
+    width: 100%;
+  }
+  &__sliderMainImage {
+    width: 100%;
+    height: auto;
+  }
+  &__sliderThumbImage {
+    max-width: 80px;
+    height: auto;
+    border: 1px solid $primary;
+    cursor: pointer;
+  }
+  &__rightContent {
+    min-width: 50%;
+    padding-left: 12px;
+  }
+  &__productTitle {
+    display: flex;
+    align-items: center;
+    color: $gray5;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    margin-bottom: 12px;
+  }
+  &__prices {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid $gray1;
+    padding: 20px 0px;
+  }
+  &__price {
+    color: $gray3;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    text-decoration: line-through;
+    margin-right: 4px;
+  }
+  &__discountPrice {
+    color: $hardPrimary;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    margin-right: 12px;
+  }
+  &__discount {
+    color: $danger;
+    padding: 3px 10px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    border-radius: 30px;
+    background: rgba(234, 75, 72, 0.1);
+  }
+  &__description {
+    color: $gray3;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+  &__cartButtonBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $gray1;
+    border-left: none;
+    border-right: none;
+    margin: 24px 0px;
+    box-shadow: 0px 1px 0px 0px #e5e5e5, 0px -1px 0px 0px #e5e5e5;
+  }
+  &__categoryTitle {
+    color: $gray5;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    margin-bottom: 12px;
+  }
+  &__categoryValue {
+    color: $gray3;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+  &__shareItems {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  &__shareText {
+    color: $gray5;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    margin-right: 10px;
+  }
+}

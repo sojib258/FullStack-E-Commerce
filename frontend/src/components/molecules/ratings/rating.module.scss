@@ -1,0 +1,16 @@
+@import "../../../styles/all.module.scss";
+.rating {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  &__reviewText {
+    color: $gray4;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    margin-left: 5px;
+  }
+}

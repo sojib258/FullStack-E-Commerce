@@ -44,7 +44,7 @@ const Navbar = () => {
             }`}
             width={250}
             height={40}
-            src={"/PithaMitha4.png"}
+            src={"/icons/logo.png"}
             alt="Logo Image"
           />
 
@@ -53,7 +53,6 @@ const Navbar = () => {
             <SearchBar
               customStyle={{ width: { xs: "100%", lg: "500px" } }}
               label="Search Products"
-              icon
             />
           )}
 

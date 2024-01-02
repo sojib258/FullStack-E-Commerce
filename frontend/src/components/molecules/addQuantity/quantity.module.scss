@@ -1,0 +1,26 @@
+@import "../../../styles/all.module.scss";
+.quantity {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid $gray2;
+  width: 148px;
+  height: auto;
+  padding: 4px 8px;
+  border-radius: 55px;
+  &__btn {
+    background-color: $gray1;
+    color: $gray5;
+    &:hover {
+      background-color: $gray2;
+    }
+  }
+  &__value {
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    min-width: 50px;
+  }
+}

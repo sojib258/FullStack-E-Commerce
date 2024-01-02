@@ -13,7 +13,7 @@ const NavbarIcon = () => {
 
   return (
     <Box
-      className={smallScreen ? styles.navbarIcon : ""}
+      className={`${smallScreen && styles.navbarIcon}`}
       sx={{ display: "flex", alignItems: "center" }}
     >
       {/* WishList Icon ================== */}

@@ -17,7 +17,7 @@ const Register = () => {
       <Box
         className={`${styles.register} ${
           smallScreen && styles.register_smallScreen
-        } ${smallScreen && "register_smallScreen"}`}
+        } ${smallScreen && "register_smallScreen"} register`}
       >
         <Box component={"form"}>
           <Typography className={styles.register__text}>

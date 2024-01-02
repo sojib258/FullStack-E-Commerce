@@ -16,7 +16,7 @@ const Login = () => {
       <Box
         className={`${styles.login} ${
           smallScreen && styles.login_smallScreen
-        } ${smallScreen && "login_smallScreen"}`}
+        } ${smallScreen && "login_smallScreen"} login`}
       >
         <Box component={"form"}>
           <Typography className={styles.login__text}>Sign In</Typography>

@@ -1,0 +1,18 @@
+@import "../../../styles/all.module.scss";
+.socialIcons {
+  display: flex;
+  flex-direction: row;
+  &__wrapper {
+    margin-right: 5px;
+    transition: 0.4s;
+    svg path {
+      transition: 0.4s;
+    }
+    &:hover {
+      background-color: $primary;
+      svg path {
+        fill: $white;
+      }
+    }
+  }
+}

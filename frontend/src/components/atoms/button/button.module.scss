@@ -1,6 +1,6 @@
 @import "../../../styles/all.module.scss";
 
-.btn {
+.atomBtn {
   padding: 8px 15px;
   text-transform: none;
   background-color: $primary;
@@ -11,7 +11,21 @@
   outline: none;
   cursor: pointer;
   transition: 0.3s;
-  .arrowIcon {
+  &__arrowIcon {
+    display: inline-block;
+    font-size: 1rem;
+    color: $white;
+    margin-left: 3px;
+    margin-top: 1px;
+  }
+  &__cartIcon {
+    display: inline-block;
+    font-size: 1rem;
+    color: $white;
+    margin-left: 3px;
+    margin-top: 1px;
+  }
+  &__addIcon {
     display: inline-block;
     font-size: 1rem;
     color: $white;

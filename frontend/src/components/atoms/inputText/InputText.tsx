@@ -53,7 +53,7 @@ const InputText: React.FC<InputTextProps> = ({
             }`}
             width={20}
             height={20}
-            src={"/search.svg"}
+            src={"/icons/search.svg"}
             alt="search-icon"
           />
         )}
@@ -64,7 +64,7 @@ const InputText: React.FC<InputTextProps> = ({
             }`}
             width={20}
             height={20}
-            src={"/eye.svg"}
+            src={"/icons/eye.svg"}
             alt="search-icon"
           />
         )}

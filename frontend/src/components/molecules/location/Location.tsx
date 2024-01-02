@@ -137,7 +137,7 @@ const Location: React.FC = () => {
     <Box
       className={`${styles.location} ${
         smallScreen && styles.location_smallScreen
-      }`}
+      } location`}
     >
       <Typography
         sx={{

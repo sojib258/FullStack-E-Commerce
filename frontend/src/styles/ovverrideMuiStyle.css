@@ -2,7 +2,7 @@
 =            These Styles for Overrite Material Ui            =
 =============================================*/
 
-/* This is for InputText Component in Atoms */
+/* This is for InputText Component in Atoms============================ */
 .inputText2 input {
   padding: 16.5px 10px 16.5px 42px;
 }
@@ -85,15 +85,15 @@
   font-size: 0.5rem;
 }
 
-/* This is for Location component in molecules */
-.css-11h6kcg-MuiButtonBase-root-MuiAccordionSummary-root {
+/* This is for Location component in molecules========================= */
+.location .css-11h6kcg-MuiButtonBase-root-MuiAccordionSummary-root {
   padding: 0px;
 }
-.css-1elwnq4-MuiPaper-root-MuiAccordion-root {
+.location .css-1elwnq4-MuiPaper-root-MuiAccordion-root {
   box-shadow: none;
 }
 
-/* This Is for Tooltip in header icons */
+/* This Is for Tooltip in header icons ================================ */
 .MuiTooltip-arrow {
   color: #00b207;
 }
@@ -102,42 +102,100 @@
   color: white;
 }
 
-/* This is for login form */
-.MuiCheckbox-colorPrimary {
+/* This is for login and register component =========================== */
+/* This style will apply login and register checkbox border color */
+.login .MuiCheckbox-colorPrimary,
+.register .MuiCheckbox-colorPrimary {
   color: #4d4d4d;
 }
-.MuiFormGroup-root .css-i4bv87-MuiSvgIcon-root {
+
+/* This style will apply login and register checkbox width, height */
+.login .MuiFormGroup-root .css-i4bv87-MuiSvgIcon-root,
+.register .MuiFormGroup-root .css-i4bv87-MuiSvgIcon-root {
   width: 1.2rem;
   height: 1.2rem;
 }
-.login_smallScreen .MuiFormGroup-root .css-i4bv87-MuiSvgIcon-root {
-  width: 1rem;
-  height: 1rem;
-}
+
+/* This style will apply checkbox width, height in smallScreen */
+.login_smallScreen .MuiFormGroup-root .css-i4bv87-MuiSvgIcon-root,
 .register_smallScreen .MuiFormGroup-root .css-i4bv87-MuiSvgIcon-root {
   width: 1rem;
   height: 1rem;
 }
-.MuiFormGroup-root .css-ahj2mt-MuiTypography-root {
+
+/* This style will apply on label inside checkbox in login and register component */
+.login .MuiFormGroup-root .css-ahj2mt-MuiTypography-root,
+.register .MuiFormGroup-root .css-ahj2mt-MuiTypography-root {
   color: #4d4d4d;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
   text-transform: none;
+  user-select: none;
 }
-.login_smallScreen .MuiFormGroup-root .css-ahj2mt-MuiTypography-root {
-  font-size: 12px;
-}
+
+/* This style will apply on label inside checkbox when smallScreen */
+.login_smallScreen .MuiFormGroup-root .css-ahj2mt-MuiTypography-root,
 .register_smallScreen .MuiFormGroup-root .css-ahj2mt-MuiTypography-root {
   font-size: 12px;
 }
-.MuiFormGroup-root .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root {
+
+/* This style will apply on checkbox in login and register component */
+.login .MuiFormGroup-root .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root,
+.register .MuiFormGroup-root .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root {
   padding: 9px 4px 9px 9px;
 }
-.MuiFormGroup-root
+
+/* This style will apply on checkbox when focused in login and register component */
+.login
+  .MuiFormGroup-root
+  .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked,
+.register
+  .MuiFormGroup-root
   .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked {
   color: #00b207;
+}
+
+/* This is for Newsletter Component ============================== */
+.newsLetter .newsLetter__checkBox .css-ahj2mt-MuiTypography-root {
+  color: #4d4d4d;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  user-select: none;
+}
+.newsLetter .newsLetter__checkBox .css-i4bv87-MuiSvgIcon-root {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.newsLetter
+  .newsLetter__checkBox
+  .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root {
+  padding: 9px 4px 9px 9px;
+}
+.newsLetter
+  .newsLetter__checkBox
+  .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked {
+  color: #00b207;
+}
+/* Dialog Box Width For NewsLetter Component in Organisms */
+.newsLetter__dialog .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+  max-width: 872px;
+  margin: 0px;
+}
+.newsLetter__dialog .css-ypiqx9-MuiDialogContent-root {
+  padding: 0px;
+}
+
+/* This style for Rating compoent in Molecules====================== */
+.rating .MuiRating-icon {
+  color: #ff8a00;
+  font-size: 20px;
+}
+.rating.rating__smallScreen .MuiRating-icon {
+  font-size: 10px;
 }
 
 /*=====  End of These Styles for Overrite Material Ui Styles  ======*/
