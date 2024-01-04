@@ -198,4 +198,33 @@
   font-size: 10px;
 }
 
+/* This styles for QuickView Carousel */
+.quickView .carousel-slider img {
+  border-radius: 6px;
+}
+.quickView .carousel .thumbs-wrapper button {
+  color: green;
+}
+.quickView .carousel .thumbs-wrapper ul {
+  display: flex;
+  justify-content: center;
+}
+.quickView .carousel .thumbs-wrapper li {
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  padding: 0px;
+  cursor: pointer;
+}
+.quickView .carousel .thumbs-wrapper li.selected img {
+  border: 3px solid #00b207;
+}
+.quickView .carousel .thumbs-wrapper li img {
+  border-radius: 6px;
+  border: 3px solid transparent;
+}
+.quickView .carousel .control-prev.control-arrow::before {
+  border-right: 8px solid #000000;
+}
+
 /*=====  End of These Styles for Overrite Material Ui Styles  ======*/

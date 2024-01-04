@@ -12,6 +12,8 @@ interface ButtonProps {
   plusIcon?: boolean;
   customStyle?: object;
   outlined?: boolean;
+  mediumScreen?: boolean;
+  smallScreen?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -22,10 +24,14 @@ const Button: React.FC<ButtonProps> = ({
   plusIcon = false,
   customStyle,
   outlined = false,
+  mediumScreen,
+  smallScreen,
 }) => {
   return (
     <MuiButton
-      className={styles.atomBtn}
+      className={`${styles.atomBtn} ${
+        mediumScreen && styles.atomBtn__mediumScreen
+      } ${smallScreen && styles.atomBtn__smallScreen}`}
       onClick={onClick}
       sx={customStyle}
       variant={outlined ? "outlined" : "contained"}

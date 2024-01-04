@@ -1,16 +1,18 @@
 @import "../../../styles/all.module.scss";
 
 .atomBtn {
-  padding: 8px 15px;
+  padding: 8px 20px;
   text-transform: none;
   background-color: $primary;
   color: $white;
   font-family: $poppins;
   font-size: 14px;
   border: none;
+  border-radius: 25px;
   outline: none;
   cursor: pointer;
   transition: 0.3s;
+
   &__arrowIcon {
     display: inline-block;
     font-size: 1rem;
@@ -34,5 +36,15 @@
   }
   &:hover {
     background-color: $hardPrimary;
+  }
+
+  // For Small Screen
+  &__mediumScreen {
+    padding: 8px 15px;
+    font-size: 12px;
+  }
+  &__smallScreen {
+    padding: 6px 10px;
+    font-size: 10px;
   }
 }

@@ -5,8 +5,8 @@ import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Image from "next/image";
 import React from "react";
-import ProductIcon from "../productCartIcons/ProductIcons";
-import Rating from "../ratings/Rating";
+import ProductIcon from "../../molecules/productCartIcons/ProductIcons";
+import Rating from "../../molecules/ratings/Rating";
 import styles from "./productCart.module.scss";
 
 interface productProps {

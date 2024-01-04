@@ -7,8 +7,9 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import React from "react";
 import styles from "./navbarIcon.module.scss";
-const NavbarIcon = () => {
+const NavbarIcon: React.FC = () => {
   const smallScreen = useMediaQuery("(max-width:600px)");
 
   return (
@@ -54,10 +55,11 @@ const NavbarIcon = () => {
       <Button
         sx={{
           backgroundColor: "#00b207",
-          padding: "6px 15px",
+          padding: "4px 20px",
           boxShadow: "none",
           height: { xs: "30px", sm: "40px", md: "45px" },
           fontSize: { xs: ".7rem", sm: ".8rem", md: ".9rem" },
+          borderRadius: "25px",
           textTransform: "none",
           "&:hover": { backgroundColor: "#2c742f" },
         }}

@@ -21,6 +21,26 @@
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
-    min-width: 50px;
+    width: 50px;
+  }
+  &__mediumScreen {
+    .quantity__value {
+      font-size: 14px;
+      width: 40px;
+    }
+    .quantity__icon {
+      width: 12px;
+      height: 12px;
+    }
+  }
+  &__smallScreen {
+    .quantity__value {
+      font-size: 12px;
+      width: 30px;
+    }
+    .quantity__icon {
+      width: 10px;
+      height: 10px;
+    }
   }
 }

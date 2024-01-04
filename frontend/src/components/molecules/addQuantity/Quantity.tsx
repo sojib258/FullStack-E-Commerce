@@ -5,8 +5,14 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import styles from "./quantity.module.scss";
-const Quantity: React.FC = () => {
-  const [value, setValue] = useState<number>(0);
+
+interface quantityProps {
+  mediumScreen?: boolean;
+  smallScreen?: boolean;
+}
+
+const Quantity: React.FC<quantityProps> = ({ mediumScreen, smallScreen }) => {
+  const [value, setValue] = useState<number>(100);
   const handleIncrementValue = () => {
     setValue(value + 1);
   };
@@ -16,20 +22,29 @@ const Quantity: React.FC = () => {
 
   return (
     <>
-      <Stack className={styles.quantity}>
+      <Stack
+        className={`${styles.quantity} ${
+          mediumScreen && styles.quantity__mediumScreen
+        } ${smallScreen && styles.quantity__smallScreen}`}
+      >
+        {/* Decrement Button */}
         <IconButton
           className={styles.quantity__btn}
           onClick={handleDecrementValue}
           disabled={value <= 0}
         >
-          <RemoveIcon />
+          <RemoveIcon className={styles.quantity__icon} />
         </IconButton>
+
+        {/* Value */}
         <Typography className={styles.quantity__value}>{value}</Typography>
+
+        {/* Increment Button */}
         <IconButton
           className={styles.quantity__btn}
           onClick={handleIncrementValue}
         >
-          <AddIcon />
+          <AddIcon className={styles.quantity__icon} />
         </IconButton>
       </Stack>
     </>

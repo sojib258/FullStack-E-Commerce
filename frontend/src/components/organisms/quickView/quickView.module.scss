@@ -1,41 +1,12 @@
 @import "../../../styles/all.module.scss";
 .quickView {
-  width: 1320px;
+  width: 100%;
   height: auto;
   padding: 40px;
   background-color: $white;
   border: 1px solid black;
   display: flex;
   flex-direction: row;
-  &__leftContent {
-    min-width: 50%;
-    padding-right: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  &__sliderSection {
-    min-width: 80px;
-    max-width: 80px;
-    margin-right: 12px;
-  }
-  &__mainImageSection {
-    width: 100%;
-  }
-  &__sliderMainImage {
-    width: 100%;
-    height: auto;
-  }
-  &__sliderThumbImage {
-    max-width: 80px;
-    height: auto;
-    border: 1px solid $primary;
-    cursor: pointer;
-  }
-  &__rightContent {
-    min-width: 50%;
-    padding-left: 12px;
-  }
   &__productTitle {
     display: flex;
     align-items: center;
@@ -53,7 +24,7 @@
     border-bottom: 1px solid $gray1;
     padding: 20px 0px;
   }
-  &__price {
+  &__priceCondition {
     color: $gray3;
     font-size: 20px;
     font-style: normal;
@@ -61,6 +32,14 @@
     line-height: 150%;
     text-decoration: line-through;
     margin-right: 4px;
+  }
+  &__price {
+    color: $hardPrimary;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    margin-right: 12px;
   }
   &__discountPrice {
     color: $hardPrimary;
@@ -77,7 +56,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: 150%;
-    border-radius: 30px;
+    border-radius: 4px;
     background: rgba(234, 75, 72, 0.1);
   }
   &__description {
@@ -86,6 +65,17 @@
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
+  }
+  &__wishListIcon {
+    color: $primary;
+    background-color: $gray1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    &:hover {
+      background-color: $greenGray1;
+    }
   }
   &__cartButtonBox {
     display: flex;
@@ -124,5 +114,37 @@
     font-weight: 400;
     line-height: 150%;
     margin-right: 10px;
+  }
+
+  // For Medium To Large Screen
+  &.quickView__mdToLg_screen {
+    .quickView__productTitle {
+      font-size: 32px;
+    }
+    .quickView__wishListIcon {
+      padding: 10px;
+    }
+  }
+
+  // For Small Screen
+  &.quickView__smallScreen {
+    .quickView__wishListIcon {
+      padding: 7px;
+    }
+    .quickView__productTitle {
+      font-size: 20px;
+    }
+    .quickView__priceCondition {
+      font-size: 16px;
+    }
+    .quickView__price {
+      font-size: 20px;
+    }
+    .quickView__discountPrice {
+      font-size: 20px;
+    }
+    .quickView__description {
+      font-size: 12px;
+    }
   }
 }
