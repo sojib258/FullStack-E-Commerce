@@ -1,0 +1,17 @@
+@import "../../../styles/all.module.scss";
+.li {
+  list-style-type: none;
+}
+.link {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 190%;
+  text-decoration: none;
+  font-size: 14px;
+  color: $gray2;
+  transition: 0.2s;
+  &:hover {
+    color: $primary;
+  }
+}

@@ -3,6 +3,7 @@ import Stock from "@/components/atoms/stockStatus/Stock";
 import Quantity from "@/components/molecules/addQuantity/Quantity";
 import Rating from "@/components/molecules/ratings/Rating";
 import SocialIcon from "@/components/molecules/socialIcons/SocialIcon";
+import useResponsive from "@/hooks/useResponsive";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -11,7 +12,7 @@ import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import Slider from "../carousel/QuickVIewSlider";
+import Slider from "../carousel/QuickViewSlider";
 import styles from "./quickView.module.scss";
 
 const image = [1, 2, 3, 4];
@@ -23,8 +24,7 @@ interface quickViewProps {
 const QuickView: React.FC<quickViewProps> = ({ discountPrice }) => {
   const theme = useTheme();
   const mdToLg = useMediaQuery(theme.breakpoints.between("md", "lg"));
-  const smallScreen = useMediaQuery("(max-width:600px)");
-
+  const { downSmScreen } = useResponsive();
   return (
     <>
       <Grid
@@ -32,7 +32,7 @@ const QuickView: React.FC<quickViewProps> = ({ discountPrice }) => {
         container
         className={`${styles.quickView} ${
           mdToLg && styles.quickView__mdToLg_screen
-        } ${smallScreen && styles.quickView__smallScreen} quickView`}
+        } ${downSmScreen && styles.quickView__smallScreen} quickView`}
       >
         {/* Left Slider Section */}
         <Grid item xs={12} md={6} className={styles.quickView__leftContent}>
@@ -94,7 +94,7 @@ const QuickView: React.FC<quickViewProps> = ({ discountPrice }) => {
           <Box className={styles.quickView__cartButtonBox}>
             {/* Product Quantity Action */}
             <Quantity
-              smallScreen={smallScreen ? true : false}
+              smallScreen={downSmScreen ? true : false}
               mediumScreen={mdToLg ? true : false}
             />
 
@@ -102,14 +102,14 @@ const QuickView: React.FC<quickViewProps> = ({ discountPrice }) => {
             <Button
               customStyle={{
                 width: "100%",
-                margin: smallScreen ? "18px 4px" : "18px 12px",
-                padding: smallScreen ? "4px 4px!important" : "10px",
-                fontSize: smallScreen ? "8px!important" : "14px",
+                margin: downSmScreen ? "18px 4px" : "18px 12px",
+                padding: downSmScreen ? "4px 4px!important" : "10px",
+                fontSize: downSmScreen ? "8px!important" : "14px",
               }}
               mediumScreen={mdToLg ? true : false}
-              smallScreen={smallScreen ? true : false}
+              smallScreen={downSmScreen ? true : false}
               text="Add to Cart"
-              cartIcon={!smallScreen ? true : false}
+              cartIcon={!downSmScreen ? true : false}
             />
 
             {/* Product Add Wishlist Button Action */}

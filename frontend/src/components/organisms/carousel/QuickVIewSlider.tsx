@@ -22,7 +22,6 @@ const Slider = () => {
           thumbWidth={150}
           autoFocus={false}
           useKeyboardArrows={true}
-          // animationHandler={"fade"}
           transitionTime={700}
         >
           {arr.map((item, index) => (

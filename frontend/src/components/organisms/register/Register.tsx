@@ -1,23 +1,23 @@
 import InputText from "@/components/atoms/inputText/InputText";
+import useResponsive from "@/hooks/useResponsive";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 import Typography from "@mui/material/Typography";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import AtomButton from "../../atoms/button/Button";
 import styles from "./register.module.scss";
 
 const Register = () => {
-  const smallScreen = useMediaQuery("(max-width:600px)");
+  const { downSmScreen } = useResponsive();
 
   return (
     <>
       <Box
         className={`${styles.register} ${
-          smallScreen && styles.register_smallScreen
-        } ${smallScreen && "register_smallScreen"} register`}
+          downSmScreen && styles.register_smallScreen
+        } ${downSmScreen && "register_smallScreen"} register`}
       >
         <Box component={"form"}>
           <Typography className={styles.register__text}>

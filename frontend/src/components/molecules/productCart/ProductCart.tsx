@@ -1,49 +1,68 @@
 import Button from "@/components/atoms/button/Button";
+import useResponsive from "@/hooks/useResponsive";
 import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import Image from "next/image";
 import React from "react";
-import ProductIcon from "../../molecules/productCartIcons/ProductIcons";
-import Rating from "../../molecules/ratings/Rating";
+import ProductIcon from "../productCartIcons/ProductIcons";
+import Rating from "../ratings/Rating";
 import styles from "./productCart.module.scss";
 
 interface productProps {
-  src: string | number;
-  discountPrice?: boolean;
+  imgSrc: string;
+  imgAlt?: string;
+  title: string;
+  price: string | number;
+  discountPrice?: string | number;
+  value: number;
 }
 
-const ProductCart: React.FC<productProps> = ({ src, discountPrice }) => {
-  const smallScreen = useMediaQuery("(max-width: 600px)");
+const ProductCart: React.FC<productProps> = ({
+  imgSrc,
+  imgAlt = "Product Image",
+  price,
+  discountPrice,
+  title,
+  value,
+}) => {
+  const { downMdScreen, downSmScreen } = useResponsive();
 
   return (
     <>
-      <Stack
+      <Box
         className={`${styles.productCart} ${
-          smallScreen && styles.productCart__smallScreen
+          downMdScreen && styles.productCart__mdScreen
         }`}
       >
         <Box className={styles.productCart__header}>
           <Image
             width={200}
             height={100}
-            src={`/img/${src}.jpg`}
-            alt={"Product Image"}
+            src={imgSrc}
+            alt={imgAlt}
             className={styles.productCart__image}
           />
+
+          {/* For Hover Overlay */}
+          <Box className={styles.productCart__overlay}>
+            <Box className={styles.productCart__hoverIcon}>
+              <ProductIcon />
+            </Box>
+          </Box>
         </Box>
         <Box className={styles.productCart__content}>
-          <Typography className={styles.productCart__title}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </Typography>
+          <Typography className={styles.productCart__title}>{title}</Typography>
           <Box mb={1}>
-            <Rating readOnly />
+            <Rating
+              fontSize={downSmScreen ? "15px!important" : "18px!important"}
+              value={value}
+              readOnly
+            />
           </Box>
           <Typography className={styles.productCart__amount}>(2 kg)</Typography>
         </Box>
 
-        <Box className={styles.productCart__footer}>
+        <Box className={styles.productCart__footer} sx={{ marginTop: "auto" }}>
           <Box sx={{ display: "flex" }}>
             {discountPrice ? (
               <>
@@ -55,13 +74,13 @@ const ProductCart: React.FC<productProps> = ({ src, discountPrice }) => {
                     alt="Taka Logo"
                     className={styles.productCart__currencyIcon}
                   />
-                  20
+                  {discountPrice}
                 </Typography>
                 <Typography
                   component={"span"}
                   className={styles.productCart__priceCondition}
                 >
-                  25
+                  {price}
                 </Typography>
               </>
             ) : (
@@ -73,27 +92,22 @@ const ProductCart: React.FC<productProps> = ({ src, discountPrice }) => {
                   alt="Taka Logo"
                   className={styles.productCart__currencyIcon}
                 />
-                25
+                {price}
               </Typography>
             )}
           </Box>
           <Button
             customStyle={{
-              padding: smallScreen
+              padding: downMdScreen
                 ? "2px 6px 2px 6px!important"
                 : "4px 12px 4px 10px!important",
-              fontSize: smallScreen && "10px!important",
+              fontSize: downMdScreen && "10px!important",
             }}
             plusIcon
             text="Add"
           />
         </Box>
-        <Box className={styles.productCart__overlay}>
-          <Box className={styles.productCart__hoverIcon}>
-            <ProductIcon />
-          </Box>
-        </Box>
-      </Stack>
+      </Box>
     </>
   );
 };

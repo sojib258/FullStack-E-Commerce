@@ -5,6 +5,10 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  &__icon {
+    color: $danger;
+    font-size: 20px;
+  }
   &__reviewText {
     color: $gray4;
     font-size: 14px;

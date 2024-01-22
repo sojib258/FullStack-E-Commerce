@@ -4,7 +4,6 @@
   height: auto;
   padding: 40px;
   background-color: $white;
-  border: 1px solid black;
   display: flex;
   flex-direction: row;
   &__productTitle {
@@ -128,6 +127,7 @@
 
   // For Small Screen
   &.quickView__smallScreen {
+    padding: 10px 5px;
     .quickView__wishListIcon {
       padding: 7px;
     }

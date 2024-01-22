@@ -1,5 +1,6 @@
 import Button from "@/components/atoms/button/Button";
 import Stock from "@/components/atoms/stockStatus/Stock";
+import useResponsive from "@/hooks/useResponsive";
 import DeleteForeverSharpIcon from "@mui/icons-material/DeleteForeverSharp";
 import { IconButton } from "@mui/material";
 import Box from "@mui/material/Box";
@@ -11,7 +12,6 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Typography from "@mui/material/Typography";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import Image from "next/image";
 import styles from "./wishlist.module.scss";
 
@@ -32,12 +32,12 @@ const rows = [
 ];
 
 const Wishlist: React.FC<wishListProps> = ({ discountPrice }) => {
-  const mediumScreen = useMediaQuery("(max-width:1200px)");
+  const { downLgScreen } = useResponsive();
 
   return (
     <TableContainer
       className={`${styles.wishList} ${
-        mediumScreen && styles.wishList__mediumScreen
+        downLgScreen && styles.wishList__largeScreen
       }`}
       component={Paper}
     >
@@ -135,18 +135,18 @@ const Wishlist: React.FC<wishListProps> = ({ discountPrice }) => {
               </TableCell>
               <TableCell>
                 <Stock
-                  customStyle={{ fontSize: mediumScreen ? "10px" : "14px" }}
+                  customStyle={{ fontSize: downLgScreen ? "10px" : "14px" }}
                   inStock={row.stock}
                 />
               </TableCell>
               <TableCell>
                 <Button
                   customStyle={{
-                    padding: mediumScreen
+                    padding: downLgScreen
                       ? "4px 15px!important"
                       : "8px 15px!important",
                     marginRight: "20px",
-                    fontSize: mediumScreen
+                    fontSize: downLgScreen
                       ? "10px!important"
                       : "14px!important",
                   }}

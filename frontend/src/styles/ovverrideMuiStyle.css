@@ -189,13 +189,9 @@
   padding: 0px;
 }
 
-/* This style for Rating compoent in Molecules====================== */
+/* This style for Rating compoent in Molecules======================  */
 .rating .MuiRating-icon {
   color: #ff8a00;
-  font-size: 20px;
-}
-.rating.rating__smallScreen .MuiRating-icon {
-  font-size: 10px;
 }
 
 /* This styles for QuickView Carousel */
@@ -227,4 +223,87 @@
   border-right: 8px solid #000000;
 }
 
+/* This Styles for Categories Slider Section in Categories Organisms */
+.categories ul.react-multi-carousel-track {
+  margin: 40px 0px 0px 0px;
+}
+.categories button.react-multiple-carousel__arrow {
+  min-width: 23px;
+  min-height: 23px;
+}
+.categories button::before {
+  font-size: 12px;
+}
+.categories button.react-multiple-carousel__arrow:hover {
+  background-color: #00b207;
+}
+.categories button.react-multiple-carousel__arrow {
+  top: 0;
+}
+.categories button.react-multiple-carousel__arrow--left {
+  left: calc(100% - 55px);
+}
+.categories button.react-multiple-carousel__arrow--right {
+  right: 0px;
+}
+.categories ul li.react-multi-carousel-dot--active button {
+  background-color: #00b207;
+}
+/* For Responsive */
+.categories__smScreen ul.react-multi-carousel-track {
+  margin: 65px 0px 35px 0px;
+}
+.categories__smScreen button.react-multiple-carousel__arrow {
+  min-width: 33px;
+  min-height: 33px;
+}
+.categories__smScreen button::before {
+  font-size: 15px;
+}
+.categories__smScreen button.react-multiple-carousel__arrow--left {
+  left: calc(100% - 75px);
+}
+/* End This Styles for Categories Slider Section in Categories Organisms */
+
+/* This Styles for Testimonial Slider Section in Testimonial Organisms */
+.testimonial ul.react-multi-carousel-track {
+  margin: 40px 0px 0px 0px;
+}
+.testimonial button.react-multiple-carousel__arrow {
+  min-width: 23px;
+  min-height: 23px;
+}
+.testimonial button::before {
+  font-size: 12px;
+}
+.testimonial button.react-multiple-carousel__arrow:hover {
+  background-color: #00b207;
+}
+.testimonial button.react-multiple-carousel__arrow {
+  top: 0;
+}
+.testimonial button.react-multiple-carousel__arrow--left {
+  left: calc(100% - 55px);
+}
+.testimonial button.react-multiple-carousel__arrow--right {
+  right: 0px;
+}
+.testimonial ul li.react-multi-carousel-dot--active button {
+  background-color: #00b207;
+}
+/* For Responsive */
+.testimonial__smScreen ul.react-multi-carousel-track {
+  margin: 65px 0px 35px 0px;
+}
+.testimonial__smScreen button.react-multiple-carousel__arrow {
+  min-width: 33px;
+  min-height: 33px;
+}
+.testimonial__smScreen button::before {
+  font-size: 15px;
+}
+.testimonial__smScreen button.react-multiple-carousel__arrow--left {
+  left: calc(100% - 75px);
+}
+/* End This Styles for Testimonial Slider Section in Testimonial Organisms */
 /*=====  End of These Styles for Overrite Material Ui Styles  ======*/

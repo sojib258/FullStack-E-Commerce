@@ -1,3 +1,4 @@
+import useResponsive from "@/hooks/useResponsive";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
@@ -6,15 +7,14 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import React from "react";
 import styles from "./navbarIcon.module.scss";
 const NavbarIcon: React.FC = () => {
-  const smallScreen = useMediaQuery("(max-width:600px)");
+  const { downSmScreen } = useResponsive();
 
   return (
     <Box
-      className={`${smallScreen && styles.navbarIcon}`}
+      className={`${downSmScreen && styles.navbarIcon}`}
       sx={{ display: "flex", alignItems: "center" }}
     >
       {/* WishList Icon ================== */}
@@ -55,11 +55,7 @@ const NavbarIcon: React.FC = () => {
       <Button
         sx={{
           backgroundColor: "#00b207",
-          padding: "4px 20px",
-          boxShadow: "none",
-          height: { xs: "30px", sm: "40px", md: "45px" },
           fontSize: { xs: ".7rem", sm: ".8rem", md: ".9rem" },
-          borderRadius: "25px",
           textTransform: "none",
           "&:hover": { backgroundColor: "#2c742f" },
         }}

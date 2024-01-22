@@ -12,7 +12,7 @@ interface quantityProps {
 }
 
 const Quantity: React.FC<quantityProps> = ({ mediumScreen, smallScreen }) => {
-  const [value, setValue] = useState<number>(100);
+  const [value, setValue] = useState<number>(0);
   const handleIncrementValue = () => {
     setValue(value + 1);
   };

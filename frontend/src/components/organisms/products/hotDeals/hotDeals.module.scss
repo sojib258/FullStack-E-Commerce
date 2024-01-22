@@ -1,0 +1,23 @@
+@import "../../../../styles/all.module.scss";
+.hotDeals {
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+  &__headText {
+    color: $gray5;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+  }
+
+  // For Responsive
+  &__smScreen {
+    .hotDeals__headText {
+      font-size: 32px;
+    }
+  }
+}

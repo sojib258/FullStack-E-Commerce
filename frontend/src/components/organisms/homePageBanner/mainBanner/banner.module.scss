@@ -1,0 +1,83 @@
+@import "../../../../styles/all.module.scss";
+.banner {
+  height: 100%;
+  background-color: #edf2ee;
+  padding: 30px 16px 130px 16px;
+  &__Img {
+    width: 100%;
+    height: auto;
+  }
+  &__leftContentGrid {
+    margin-bottom: 40px;
+  }
+  &__leftContent {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__welcome {
+    color: $primary;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 14px */
+    letter-spacing: 0.28px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  &__title {
+    color: $gray5;
+    font-size: 1.75rem;
+    padding-right: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 86.4px */
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  &__description {
+    color: $gray3;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 21px */
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  &__rightContent {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+  }
+
+  // For Responsive
+
+  &__smallScreen {
+    padding: 50px 24px 150px 24px;
+    .banner__leftContentGrid {
+      margin-bottom: 0px;
+    }
+    .banner__leftContent {
+      align-items: flex-start;
+      padding-right: 10px;
+    }
+    .banner__title {
+      font-size: 2.25rem;
+      text-align: left;
+    }
+    .banner__description {
+      text-align: left;
+    }
+  }
+  &__largeScreen {
+    .banner__title {
+      font-size: 4.5rem;
+    }
+    .banner__description {
+      font-size: 14px;
+    }
+  }
+}

@@ -1,22 +1,23 @@
 import InputText from "@/components/atoms/inputText/InputText";
+import useResponsive from "@/hooks/useResponsive";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 import Typography from "@mui/material/Typography";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import React from "react";
 import AtomButton from "../../atoms/button/Button";
 import styles from "./login.module.scss";
-const Login = () => {
-  const smallScreen = useMediaQuery("(max-width:600px)");
+const Login: React.FC = () => {
+  const { downSmScreen } = useResponsive();
 
   return (
     <>
       <Box
         className={`${styles.login} ${
-          smallScreen && styles.login_smallScreen
-        } ${smallScreen && "login_smallScreen"} login`}
+          downSmScreen && styles.login_smallScreen
+        } ${downSmScreen && "login_smallScreen"} login`}
       >
         <Box component={"form"}>
           <Typography className={styles.login__text}>Sign In</Typography>

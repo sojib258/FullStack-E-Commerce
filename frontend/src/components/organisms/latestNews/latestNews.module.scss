@@ -1,0 +1,19 @@
+@import "../../../styles/all.module.scss";
+.news {
+  &__headText {
+    color: $gray5;
+    text-align: left;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 38.4px */
+    margin-bottom: 32px;
+  }
+
+  //   For Responsive
+  &__smScreen {
+    .news__headText {
+      font-size: 32px;
+    }
+  }
+}

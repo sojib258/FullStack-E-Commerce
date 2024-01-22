@@ -8,7 +8,7 @@
   font-family: $poppins;
   font-size: 14px;
   border: none;
-  border-radius: 25px;
+  border-radius: 0.5rem;
   outline: none;
   cursor: pointer;
   transition: 0.3s;
@@ -16,7 +16,6 @@
   &__arrowIcon {
     display: inline-block;
     font-size: 1rem;
-    color: $white;
     margin-left: 3px;
     margin-top: 1px;
   }

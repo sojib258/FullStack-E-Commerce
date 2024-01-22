@@ -64,7 +64,8 @@
     text-decoration: line-through;
   }
 
-  &__mediumScreen {
+  // For Responsive
+  &__largeScreen {
     .wishList__productName {
       font-size: 10px;
     }
