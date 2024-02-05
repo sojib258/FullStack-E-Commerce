@@ -54,7 +54,7 @@ const Company = () => {
       className={`${styles.company} ${smScreen && styles.company__smScreen}`}
     >
       {companyLogo.map((item, index) => (
-        <Box className={styles.company__item}>
+        <Box key={index} className={styles.company__item}>
           <Image
             className={styles.company__img}
             width={100}

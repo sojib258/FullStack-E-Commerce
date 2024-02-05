@@ -1,92 +1,36 @@
 import Button from "@/components/atoms/button/Button";
 import ProductCart from "@/components/molecules/productCart/ProductCart";
 import useResponsive from "@/hooks/useResponsive";
-import Masonry from "@mui/lab/Masonry";
+import { Masonry } from "@mui/lab";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import { useEffect, useState } from "react";
+import { useStoreActions, useStoreState } from "../../../../store/";
 import styles from "./products.module.scss";
-
 const Products = () => {
-  const products = [
-    {
-      imgSrc: "/img/12.jpg",
-      text: "Hello",
-      title:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, quod?",
-      ratingValue: 3,
-    },
-    {
-      imgSrc: "/img/8.jpg",
-      text: "Hello",
-      title: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-      ratingValue: 4,
-    },
-    {
-      imgSrc: "/img/9.jpg",
-      text: "Hello",
-      title:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste necessitatibus numquam illum!",
-      ratingValue: 5,
-    },
-    {
-      imgSrc: "/img/10.jpg",
-      text: "Hello",
-      title: "Lorem ipsum dolor sit.",
-      ratingValue: 1,
-    },
-    {
-      imgSrc: "/img/11.jpg",
-      text: "Hello",
-      title:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus quod ex molestiae, accusamus soluta quia.",
-      ratingValue: 3,
-    },
-    {
-      imgSrc: "/img/7.jpg",
-      text: "Hello",
-      title:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, eveniet.",
-      ratingValue: 4,
-    },
-    {
-      imgSrc: "/img/8.jpg",
-      text: "Hello",
-      title: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-      ratingValue: 4,
-    },
-    {
-      imgSrc: "/img/9.jpg",
-      text: "Hello",
-      title: "Lorem ipsum dolor sit amet.",
-      ratingValue: 4,
-    },
-    {
-      imgSrc: "/img/10.jpg",
-      text: "Hello",
-      title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae.",
-      ratingValue: 4,
-    },
-    {
-      imgSrc: "/img/11.jpg",
-      text: "Hello",
-      title:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam similique placeat modi quo praesentium?",
-      ratingValue: 4,
-    },
-    {
-      imgSrc: "/img/10.jpg",
-      text: "Hello",
-      title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae.",
-      ratingValue: 4,
-    },
-    {
-      imgSrc: "/img/11.jpg",
-      text: "Hello",
-      title:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam similique placeat modi quo praesentium?",
-      ratingValue: 4,
-    },
-  ];
+  const products = useStoreState((state) => state.product.products);
+  const fetchProducts = useStoreActions(
+    (actions) => actions.product.fetchProducts
+  );
+
+  console.log("Product", products);
+
+  const [loading, setLoading] = useState(true);
+
+  console.log("Loading", loading);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        await fetchProducts();
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const { smScreen } = useResponsive();
   return (
     <Box
@@ -107,21 +51,28 @@ const Products = () => {
           text="View All"
         />
       </Box>
-      <Masonry
-        columns={{ xs: 2, sm: 3, md: 4, lg: 5, xl: 6 }}
-        spacing={{ xs: 1, sm: 2 }}
-      >
-        {products.map((item, index) => (
-          <Box className={styles.products__masonryItem} key={index}>
-            <ProductCart
-              value={item.ratingValue}
-              price={10}
-              title={item.title}
-              imgSrc={item.imgSrc}
-            />
-          </Box>
-        ))}
-      </Masonry>
+      {loading ? (
+        <Typography>Loading...</Typography>
+      ) : (
+        <Masonry
+          columns={{ xs: 2, sm: 3, md: 4, lg: 5, xl: 6 }}
+          spacing={{ xs: 1, sm: 2 }}
+        >
+          {products.map((item) => (
+            <Box className={styles.products__masonryItem} key={item.id}>
+              <ProductCart
+                ratingValue={item.attributes.ratingValue}
+                price={item.attributes.price}
+                title={item.attributes.name}
+                category={item.attributes.category.name}
+                description={item.attributes.description}
+                discountPrice={item.attributes.discountPrice}
+                images={item.attributes.images}
+              />
+            </Box>
+          ))}
+        </Masonry>
+      )}
     </Box>
   );
 };

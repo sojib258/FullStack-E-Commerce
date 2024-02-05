@@ -2,6 +2,11 @@
 =            These Styles for Overrite Material Ui            =
 =============================================*/
 
+/*=============================================
+=       If you want to find your desired styling for any component
+        then press (ctrl + f) and search component related keyword
+=============================================*/
+
 /* This is for InputText Component in Atoms============================ */
 .inputText2 input {
   padding: 16.5px 10px 16.5px 42px;
@@ -195,6 +200,10 @@
 }
 
 /* This styles for QuickView Carousel */
+.quickViewDialog .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+  max-width: 1200px;
+  height: calc(100% - 30px);
+}
 .quickView .carousel-slider img {
   border-radius: 6px;
 }

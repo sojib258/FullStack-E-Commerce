@@ -39,9 +39,9 @@ const Banner = () => {
             <Box className={styles.banner__rightContent}>
               <Image
                 className={styles.banner__Img}
-                width={600}
-                height={600}
-                src={"/img/13.png"}
+                width={800}
+                height={800}
+                src={"/img/bannerImg.png"}
                 alt="Banner Image"
               />
             </Box>

@@ -766,8 +766,9 @@ export interface ApiProductProduct extends Schema.CollectionType {
     >;
     images: Attribute.Media;
     stock: Attribute.Integer;
-    userId: Attribute.UID;
-    dynamicZone: Attribute.DynamicZone<['category.dynamic-zone-display-name']>;
+    discountPrice: Attribute.Integer;
+    Availability: Attribute.Boolean;
+    ratingValue: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

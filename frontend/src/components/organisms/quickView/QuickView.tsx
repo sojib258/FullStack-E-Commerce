@@ -3,11 +3,16 @@ import Stock from "@/components/atoms/stockStatus/Stock";
 import Quantity from "@/components/molecules/addQuantity/Quantity";
 import Rating from "@/components/molecules/ratings/Rating";
 import SocialIcon from "@/components/molecules/socialIcons/SocialIcon";
+import CloseIcon from "@mui/icons-material/Close";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import IconButton from "@mui/material/IconButton";
+
 import useResponsive from "@/hooks/useResponsive";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import { Stack } from "@mui/material";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
@@ -15,131 +20,176 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Slider from "../carousel/QuickViewSlider";
 import styles from "./quickView.module.scss";
 
-const image = [1, 2, 3, 4];
-
 interface quickViewProps {
-  discountPrice?: boolean;
+  discountPrice?: number;
+  open: boolean;
+  handleClose: () => void;
+  price: number;
+  productTitle: string;
+  description?: string;
+  ratingValue?: number;
+  category?: string;
+  images: any[];
 }
 
-const QuickView: React.FC<quickViewProps> = ({ discountPrice }) => {
+const QuickView: React.FC<quickViewProps> = ({
+  price,
+  productTitle,
+  description,
+  ratingValue,
+  category,
+  discountPrice,
+  open,
+  images,
+  handleClose,
+}) => {
   const theme = useTheme();
   const mdToLg = useMediaQuery(theme.breakpoints.between("md", "lg"));
   const { downSmScreen } = useResponsive();
+
+  const discount = discountPrice
+    ? Math.floor(((price - discountPrice) / price) * 100)
+    : null;
+
   return (
     <>
-      <Grid
-        spacing={2}
-        container
-        className={`${styles.quickView} ${
-          mdToLg && styles.quickView__mdToLg_screen
-        } ${downSmScreen && styles.quickView__smallScreen} quickView`}
-      >
-        {/* Left Slider Section */}
-        <Grid item xs={12} md={6} className={styles.quickView__leftContent}>
-          <Slider />
-        </Grid>
+      <Dialog className={"quickViewDialog"} onClose={handleClose} open={open}>
+        <IconButton
+          aria-label="close"
+          onClick={handleClose}
+          className={styles.quickView__crossIcon}
+        >
+          <CloseIcon />
+        </IconButton>
+        <DialogContent dividers>
+          <Grid
+            spacing={2}
+            container
+            className={`${styles.quickView} ${
+              mdToLg && styles.quickView__mdToLg_screen
+            } ${downSmScreen && styles.quickView__smallScreen} quickView`}
+          >
+            {/* Left Slider Section */}
+            <Grid item xs={12} md={6} className={styles.quickView__leftContent}>
+              <Slider images={images} />
+            </Grid>
 
-        {/* Right Content Section */}
-        <Grid xs={12} md={6} item className={styles.quickView__rightContent}>
-          {/* Product Title */}
-          <Typography className={styles.quickView__productTitle}>
-            Product Title
-            <Stock customStyle={{ marginLeft: "6px" }} inStock />
-          </Typography>
-
-          {/* Rating Component */}
-          <Rating reviewText readOnly />
-
-          {/* Price Area */}
-          <Typography className={styles.quickView__prices}>
-            {discountPrice ? (
-              <>
-                <Typography
-                  className={styles.quickView__priceCondition}
-                  component={"span"}
-                >
-                  $50.00
-                </Typography>
-                <Typography
-                  className={styles.quickView__discountPrice}
-                  component={"span"}
-                >
-                  $17.28
-                </Typography>
-              </>
-            ) : (
-              <Typography
-                className={styles.quickView__price}
-                component={"span"}
-              >
-                $50.00
+            {/* Right Content Section */}
+            <Grid
+              xs={12}
+              md={6}
+              item
+              className={styles.quickView__rightContent}
+            >
+              {/* Product Title */}
+              <Typography className={styles.quickView__productTitle}>
+                {productTitle}
               </Typography>
-            )}
-            <Typography
-              className={styles.quickView__discount}
-              component={"span"}
-            >
-              20% Off
-            </Typography>
-          </Typography>
 
-          {/* Product Description Area */}
-          <Typography className={styles.quickView__description}>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex
-            suscipit officiis dicta molestiae repellendus sed, veritatis maxime
-            ducimus officia quaerat. Explicabo ab suscipit enim odio?
-          </Typography>
+              {/* Rating Component */}
+              <Stack direction={"row"}>
+                <Rating
+                  customStyle={{ maxWidth: "200px" }}
+                  value={ratingValue}
+                  reviewText
+                  readOnly
+                />
+                <Stock customStyle={{ marginLeft: "6px" }} inStock />
+              </Stack>
 
-          {/* Product Actions Area */}
-          <Box className={styles.quickView__cartButtonBox}>
-            {/* Product Quantity Action */}
-            <Quantity
-              smallScreen={downSmScreen ? true : false}
-              mediumScreen={mdToLg ? true : false}
-            />
+              {/* Price Area */}
+              <Typography className={styles.quickView__prices}>
+                {discountPrice ? (
+                  <>
+                    <Typography
+                      className={styles.quickView__discountPrice}
+                      component={"span"}
+                    >
+                      &#2547; {discountPrice}
+                    </Typography>
+                    <Typography
+                      className={styles.quickView__priceCondition}
+                      component={"span"}
+                    >
+                      {price}
+                    </Typography>
+                  </>
+                ) : (
+                  <Typography
+                    className={styles.quickView__price}
+                    component={"span"}
+                  >
+                    &#2547; {price}
+                  </Typography>
+                )}
+                {discountPrice && (
+                  <Typography
+                    className={styles.quickView__discount}
+                    component={"span"}
+                  >
+                    {discount}% Off
+                  </Typography>
+                )}
+              </Typography>
 
-            {/* Product Add Cart Button Action */}
-            <Button
-              customStyle={{
-                width: "100%",
-                margin: downSmScreen ? "18px 4px" : "18px 12px",
-                padding: downSmScreen ? "4px 4px!important" : "10px",
-                fontSize: downSmScreen ? "8px!important" : "14px",
-              }}
-              mediumScreen={mdToLg ? true : false}
-              smallScreen={downSmScreen ? true : false}
-              text="Add to Cart"
-              cartIcon={!downSmScreen ? true : false}
-            />
+              {/* Product Description Area */}
+              <Typography className={styles.quickView__description}>
+                {description}
+              </Typography>
 
-            {/* Product Add Wishlist Button Action */}
-            <IconButton className={styles.quickView__wishListIcon}>
-              <Tooltip title="Add Wishlist" arrow>
-                <FavoriteBorderOutlinedIcon />
-              </Tooltip>
-            </IconButton>
-          </Box>
+              {/* Product Actions Area */}
+              <Box className={styles.quickView__cartButtonBox}>
+                {/* Product Quantity Action */}
+                <Quantity
+                  smallScreen={downSmScreen ? true : false}
+                  mediumScreen={mdToLg ? true : false}
+                />
 
-          {/* Product Category Area */}
-          <Typography className={styles.quickView__categoryTitle}>
-            Category:{" "}
-            <Typography
-              component={"span"}
-              className={styles.quickView__categoryValue}
-            >
-              category
-            </Typography>
-          </Typography>
+                {/* Product Add Cart Button Action */}
+                <Button
+                  customStyle={{
+                    width: "100%",
+                    margin: downSmScreen ? "18px 4px" : "18px 12px",
+                    padding: downSmScreen ? "4px 4px!important" : "10px",
+                    fontSize: downSmScreen ? "8px!important" : "14px",
+                    borderRadius: "25px",
+                  }}
+                  mediumScreen={mdToLg ? true : false}
+                  smallScreen={downSmScreen ? true : false}
+                  text="Add to Cart"
+                  cartIcon={!downSmScreen ? true : false}
+                />
 
-          {/* Product Share Icons */}
-          <Box className={styles.quickView__shareItems}>
-            <Typography className={styles.quickView__shareText}>
-              Share item:{" "}
-            </Typography>
-            <SocialIcon />
-          </Box>
-        </Grid>
-      </Grid>
+                {/* Product Add Wishlist Button Action */}
+                <IconButton className={styles.quickView__wishListIcon}>
+                  <Tooltip title="Add Wishlist" arrow>
+                    <FavoriteBorderOutlinedIcon />
+                  </Tooltip>
+                </IconButton>
+              </Box>
+
+              {/* Product Category Area */}
+              <Typography className={styles.quickView__categoryTitle}>
+                Category:{" "}
+                <Typography
+                  component={"span"}
+                  className={styles.quickView__categoryValue}
+                >
+                  {category}
+                </Typography>
+              </Typography>
+
+              {/* Product Share Icons */}
+              <Box className={styles.quickView__shareItems}>
+                <Typography className={styles.quickView__shareText}>
+                  Share item:{" "}
+                </Typography>
+                <SocialIcon />
+              </Box>
+            </Grid>
+          </Grid>
+        </DialogContent>
+      </Dialog>
     </>
   );
 };

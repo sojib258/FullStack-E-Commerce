@@ -1,0 +1,127 @@
+{
+  "data": [
+    {
+      "id": 7,
+      "attributes": {
+        "name": "Patishapta Pitha",
+        "description": "Khubi susadhu mojadar patishapta pitha.",
+        "price": 500,
+        "createdAt": "2023-12-22T12:41:18.376Z",
+        "updatedAt": "2024-01-26T09:50:12.278Z",
+        "publishedAt": "2023-12-22T12:41:19.799Z",
+        "stock": 4,
+        "discountPrice": null,
+        "Availability": true,
+        "ratingValue": 3,
+        "category": {
+          "data": {
+            "id": 1,
+            "attributes": {
+              "name": "Food",
+              "createdAt": "2023-12-20T16:09:03.121Z",
+              "updatedAt": "2023-12-20T16:30:56.879Z",
+              "publishedAt": "2023-12-20T16:13:44.339Z",
+              "description": null
+            }
+          }
+        },
+        "images": {
+          "data": [
+            {
+              "id": 265,
+              "attributes": {
+                "name": "2.png",
+                "alternativeText": "Product Image",
+                "caption": null,
+                "width": 852,
+                "height": 722,
+                "formats": {
+                  "thumbnail": {
+                    "name": "thumbnail_2.png",
+                    "hash": "thumbnail_2_8430417aa2",
+                    "ext": ".png",
+                    "mime": "image/png",
+                    "path": null,
+                    "width": 184,
+                    "height": 156,
+                    "size": 69.62,
+                    "url": "/uploads/thumbnail_2_8430417aa2.png"
+                  },
+                  "small": {
+                    "name": "small_2.png",
+                    "hash": "small_2_8430417aa2",
+                    "ext": ".png",
+                    "mime": "image/png",
+                    "path": null,
+                    "width": 500,
+                    "height": 424,
+                    "size": 445.46,
+                    "url": "/uploads/small_2_8430417aa2.png"
+                  },
+                  "medium": {
+                    "name": "medium_2.png",
+                    "hash": "medium_2_8430417aa2",
+                    "ext": ".png",
+                    "mime": "image/png",
+                    "path": null,
+                    "width": 750,
+                    "height": 636,
+                    "size": 955.94,
+                    "url": "/uploads/medium_2_8430417aa2.png"
+                  }
+                },
+                "hash": "2_8430417aa2",
+                "ext": ".png",
+                "mime": "image/png",
+                "size": 281.68,
+                "url": "/uploads/2_8430417aa2.png",
+                "previewUrl": null,
+                "provider": "local",
+                "provider_metadata": null,
+                "createdAt": "2024-01-24T15:15:05.223Z",
+                "updatedAt": "2024-01-30T09:58:16.485Z"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "meta": {
+    "pagination": { "page": 1, "pageSize": 25, "pageCount": 1, "total": 3 }
+  }
+}
+
+
+
+[
+  {
+      "id": 262,
+      "alternativeText": null,
+      "width": 1024,
+      "height": 768,
+      "url": "/uploads/1_18_7f2451008b.jpg",
+      "formats": {
+          "thumbnail": {
+              "width": 208,
+              "height": 156,
+              "url": "/uploads/thumbnail_1_18_7f2451008b.jpg"
+          },
+          "small": {
+              "width": 500,
+              "height": 375,
+              "url": "/uploads/small_1_18_7f2451008b.jpg"
+          },
+          "medium": {
+              "width": 750,
+              "height": 563,
+              "url": "/uploads/medium_1_18_7f2451008b.jpg"
+          },
+          "large": {
+              "width": 1000,
+              "height": 750,
+              "url": "/uploads/large_1_18_7f2451008b.jpg"
+          }
+      }
+  }
+]

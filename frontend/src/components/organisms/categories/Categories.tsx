@@ -94,7 +94,7 @@ const Categories = () => {
       </Typography>
       <Carousel showDots={smScreen && true} responsive={responsive} ssr={true}>
         {categories.map((item, index) => (
-          <Box>
+          <Box key={index}>
             <CategoryItem key={index} imgSrc={item.imgSrc} text={item.text} />
           </Box>
         ))}

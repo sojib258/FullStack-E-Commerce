@@ -45,14 +45,14 @@
     "stock": {
       "type": "integer"
     },
-    "userId": {
-      "type": "uid"
+    "discountPrice": {
+      "type": "integer"
     },
-    "dynamicZone": {
-      "type": "dynamiczone",
-      "components": [
-        "category.dynamic-zone-display-name"
-      ]
+    "Availability": {
+      "type": "boolean"
+    },
+    "ratingValue": {
+      "type": "integer"
     }
   }
 }

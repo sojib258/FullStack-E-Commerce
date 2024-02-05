@@ -3,14 +3,11 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import styles from "./quickViewSlider.module.scss";
 
-const Slider = () => {
-  const arr = [
-    "https://www.seiu1000.org/sites/main/files/main-images/camera_lense_0.jpeg",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuQxeRgrOSr8WxQI3jrPQh6lshkj0CAATCI4Vn-5BXgHA4xL6HcKIMsBo2I4K-3CmMH-Q&usqp=CAU",
-    "https://www.seiu1000.org/sites/main/files/main-images/camera_lense_0.jpeg",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuQxeRgrOSr8WxQI3jrPQh6lshkj0CAATCI4Vn-5BXgHA4xL6HcKIMsBo2I4K-3CmMH-Q&usqp=CAU",
-  ];
+interface SliderProps {
+  images: string[];
+}
 
+const Slider: React.FC<SliderProps> = ({ images }) => {
   return (
     <>
       <Box className={styles.slider}>
@@ -24,7 +21,7 @@ const Slider = () => {
           useKeyboardArrows={true}
           transitionTime={700}
         >
-          {arr.map((item, index) => (
+          {images.map((item, index) => (
             <Box
               className={styles.slider__imageWrapper}
               component={"div"}

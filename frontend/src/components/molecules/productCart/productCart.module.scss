@@ -67,9 +67,8 @@
     margin-top: auto;
   }
   &__currencyIcon {
-    width: 18px;
-    height: 18px;
-    margin-top: -3px;
+    font-size: 18px;
+    margin-right: 2px;
   }
   &__discountPrice {
     display: flex;
@@ -144,8 +143,8 @@
       font-size: 12px;
     }
     .productCart__currencyIcon {
-      width: 14px;
-      height: 14px;
+      font-size: 14px;
+      margin-right: 2px;
     }
   }
 }

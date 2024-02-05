@@ -6,12 +6,19 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import styles from "./productIcons.module.scss";
 
-const ProductIcon: React.FC = () => {
+interface productIconProps {
+  handleOpen: () => void;
+}
+
+const ProductIcon: React.FC<productIconProps> = ({ handleOpen }) => {
   return (
     <Box className={styles.productIcons}>
       {/* Quick View Icon ================== */}
       <Tooltip className={styles.tooltip} arrow title="Quick View">
-        <IconButton className={styles.productIcons__quickViewIcon}>
+        <IconButton
+          onClick={handleOpen}
+          className={styles.productIcons__quickViewIcon}
+        >
           <VisibilityOutlinedIcon className={styles.productCart__icon} />
         </IconButton>
       </Tooltip>

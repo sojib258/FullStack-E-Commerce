@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import styles from "./rating.module.scss";
 
 interface ratinProps {
-  value: number;
+  value?: number;
   readOnly?: boolean;
   customStyle?: object;
   reviewText?: boolean;

@@ -1,31 +1,74 @@
 import Button from "@/components/atoms/button/Button";
+import QuickView from "@/components/organisms/quickView/QuickView";
 import useResponsive from "@/hooks/useResponsive";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import ProductIcon from "../productCartIcons/ProductIcons";
 import Rating from "../ratings/Rating";
 import styles from "./productCart.module.scss";
 
+interface Image {
+  id: string | number;
+  width: number;
+  height: number;
+  url: string;
+  alternativeText?: string | undefined;
+  formats: {
+    thumbnail?: {
+      width: number;
+      height: number;
+      url: string;
+    };
+    small?: {
+      width: number;
+      height: number;
+      url: string;
+    };
+    medium?: {
+      width: number;
+      height: number;
+      url: string;
+    };
+    large?: {
+      width: number;
+      height: number;
+      url: string;
+    };
+  };
+}
+
 interface productProps {
-  imgSrc: string;
-  imgAlt?: string;
+  images: Image[];
   title: string;
-  price: string | number;
-  discountPrice?: string | number;
-  value: number;
+  price: number;
+  discountPrice?: number;
+  ratingValue?: number;
+  description?: string;
+  category?: string;
 }
 
 const ProductCart: React.FC<productProps> = ({
-  imgSrc,
-  imgAlt = "Product Image",
+  images,
   price,
   discountPrice,
   title,
-  value,
+  ratingValue,
+  description,
+  category,
 }) => {
   const { downMdScreen, downSmScreen } = useResponsive();
+
+  console.log("Image Src", images);
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(!open);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <>
@@ -38,15 +81,15 @@ const ProductCart: React.FC<productProps> = ({
           <Image
             width={200}
             height={100}
-            src={imgSrc}
-            alt={imgAlt}
+            src={images[0].url}
+            alt={"imgAlt"}
             className={styles.productCart__image}
           />
 
           {/* For Hover Overlay */}
           <Box className={styles.productCart__overlay}>
             <Box className={styles.productCart__hoverIcon}>
-              <ProductIcon />
+              <ProductIcon handleOpen={handleOpen} />
             </Box>
           </Box>
         </Box>
@@ -55,7 +98,7 @@ const ProductCart: React.FC<productProps> = ({
           <Box mb={1}>
             <Rating
               fontSize={downSmScreen ? "15px!important" : "18px!important"}
-              value={value}
+              value={ratingValue}
               readOnly
             />
           </Box>
@@ -67,13 +110,12 @@ const ProductCart: React.FC<productProps> = ({
             {discountPrice ? (
               <>
                 <Typography className={styles.productCart__discountPrice}>
-                  <Image
-                    width={14}
-                    height={14}
-                    src={"/icons/taka.png"}
-                    alt="Taka Logo"
+                  <Typography
+                    component={"span"}
                     className={styles.productCart__currencyIcon}
-                  />
+                  >
+                    &#2547;
+                  </Typography>
                   {discountPrice}
                 </Typography>
                 <Typography
@@ -85,29 +127,39 @@ const ProductCart: React.FC<productProps> = ({
               </>
             ) : (
               <Typography className={styles.productCart__price}>
-                <Image
-                  width={14}
-                  height={14}
-                  src={"/icons/taka.png"}
-                  alt="Taka Logo"
+                <Typography
+                  component={"span"}
                   className={styles.productCart__currencyIcon}
-                />
+                >
+                  &#2547;
+                </Typography>
                 {price}
               </Typography>
             )}
           </Box>
           <Button
             customStyle={{
-              padding: downMdScreen
-                ? "2px 6px 2px 6px!important"
-                : "4px 12px 4px 10px!important",
-              fontSize: downMdScreen && "10px!important",
+              fontSize: downMdScreen && "10px",
+              padding: downMdScreen && "8px 10px",
             }}
             plusIcon
             text="Add"
           />
         </Box>
       </Box>
+      {open && (
+        <QuickView
+          description={description}
+          price={price}
+          discountPrice={discountPrice}
+          productTitle={title}
+          ratingValue={ratingValue}
+          category={category}
+          handleClose={handleClose}
+          open={open}
+          images={images}
+        />
+      )}
     </>
   );
 };
