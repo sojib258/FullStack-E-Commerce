@@ -1,149 +1,6 @@
-// import axios from "axios";
-// import { Action, Thunk, action, thunk } from "easy-peasy";
-// const API_URL = process.env.NEXT_PUBLIC_API_KEY;
-
-// interface FormatImage {
-//   width: number;
-//   height: number;
-//   url: string;
-// }
-
-// interface Format {
-//   thumbnail?: FormatImage;
-//   small?: FormatImage;
-//   medium?: FormatImage;
-//   large?: FormatImage;
-// }
-
-// interface Images{
-//   id: string | number;
-//   width: number;
-//   height: number;
-//   url: string;
-//   alternativeText?: string;
-//   formats: Format;
-//   data: any[];
-// }
-
-// interface Category {
-//   id: number;
-//   name: string;
-//   createdAt: string;
-//   updatedAt: string;
-//   publishedAt: string;
-//   description: string;
-//   data: any;
-// }
-
-// interface Attributes {
-//   id: string | number;
-//   name: string;
-//   description: string;
-//   price: number;
-//   discountPrice?: number;
-//   ratingValue?: number;
-//   createdAt: string;
-//   updatedAt: string;
-//   publishedAt: string;
-//   category: Category;
-//   availability: boolean;
-//   images: {
-//     id: string | number;
-//     width: number;
-//     height: number;
-//     url: string;
-//     alternativeText?: string;
-//     formats: Format;
-//     data: any[];
-//   }
-// }
-
-// interface ProductData {
-//   id: string;
-//   attributes: Attributes;
-// }
-
-// interface ProductModel {
-//   products: ProductData[];
-//   addProduct: Action<ProductModel, ProductData>;
-//   setProduct: Action<ProductModel, ProductData[]>;
-//   fetchProducts: Thunk<ProductModel>;
-//   productErrorMsg: string;
-//   setError: Action<ProductModel, string>;
-// }
-
-// const ProductStore: ProductModel = {
-//   products: [],
-//   addProduct: action((state, payload) => {
-//     state.products.push(payload);
-//   }),
-//   setProduct: action((state, payload) => {
-//     state.products = payload;
-//   }),
-//   fetchProducts: thunk(async (actions) => {
-//     try {
-//       const response = await axios.get(`${API_URL}/products?populate=*`);
-//       const fetchedProducts = response.data;
-//       console.log("FetchProducts", fetchedProducts);
-
-//       const formatedData = fetchedProducts.data.map((product: ProductData) => {
-//         const categoryData = product.attributes.category.data;
-//         const imagesData = product.attributes.images.data
-
-//         return {
-//           ...product,
-//           attributes: {
-//             ...product.attributes,
-// images: product.attributes.images.data.map((image: any) => ({
-//   id: image.id,
-//   alternativeText: image.attributes.alternativeText,
-//   width: image.attributes.width,
-//   height: image.attributes.height,
-//   url: image.attributes.url,
-//   formats: Object.keys(image.attributes.formats).reduce(
-//     (acc: Record<string, FormatImage>, key: string) => {
-//       acc[key] = {
-//         width: image.attributes.formats[key].width,
-//         height: image.attributes.formats[key].height,
-//         url: image.attributes.formats[key].url,
-//       };
-//       return acc;
-//     },
-//     {}
-//   ),
-// })),
-//             category: {
-//               id: categoryData.id,
-//               name: categoryData.attributes.name,
-//               description: categoryData.attributes.description,
-//               createdAt: categoryData.attributes.createdAt,
-//               updatedAt: categoryData.attributes.updatedAt,
-//               publishedAt: categoryData.attributes.publishedAt,
-//             },
-//           },
-//         };
-//       });
-
-//       console.log("Hello");
-//       formatedData.map((product: ProductData) => {
-//         actions.addProduct(product);
-//       });
-
-//       actions.setError("");
-//     } catch (error) {
-//       console.log("Error fetching products:", error);
-//       actions.setError("An error occurred while fetching products.");
-//     }
-//   }),
-//   productErrorMsg: "",
-//   setError: action((state, errorMsg) => {
-//     state.productErrorMsg = errorMsg;
-//   }),
-// };
-
-// export default ProductStore;
 import axios from "axios";
 import { Action, Thunk, action, thunk } from "easy-peasy";
+const API_URL = process.env.NEXT_PUBLIC_API_KEY;
 
 interface FormatImage {
   width: number;
@@ -190,33 +47,31 @@ interface ProductData {
 }
 
 interface ProductModel {
-  products: ProductData[];
-  addProduct: Action<ProductModel, ProductData>;
-  setProduct: Action<ProductModel, ProductData[]>;
-  fetchProducts: Thunk<ProductModel>;
-  productErrorMsg: string;
-  setError: Action<ProductModel, string>;
+  items: ProductData[];
+  addItems: Action<ProductModel, ProductData>;
+  setItems: Action<ProductModel, ProductData[]>;
+  fetchItems: Thunk<ProductModel>;
+  ErrorMsg: string;
+  setErrorMsg: Action<ProductModel, string>;
+  loading: boolean;
+  setLoading: Action<ProductModel, boolean>;
 }
 
-const API_URL = process.env.NEXT_PUBLIC_API_KEY;
-
 const productModel: ProductModel = {
-  products: [],
-  addProduct: action((state, payload) => {
-    state.products.push(payload);
+  items: [],
+  addItems: action((state, payload) => {
+    state.items.push(payload);
   }),
-  setProduct: action((state, payload) => {
-    state.products = payload;
+  setItems: action((state, payload) => {
+    state.items = payload;
   }),
 
-  fetchProducts: thunk(async (actions) => {
+  fetchItems: thunk(async (actions) => {
     try {
+      actions.setLoading(true);
       const response = await axios.get(`${API_URL}/products?populate=*`);
 
-      const updatedData = response.data.data;
-
-      // Transform the data if needed
-      const transformedData = updatedData.map((item: any) => ({
+      const updatedData = response.data.data.map((item: any) => ({
         id: item.id,
         attributes: {
           name: item.attributes.name,
@@ -230,12 +85,9 @@ const productModel: ProductModel = {
           Availability: item.attributes.Availability,
           ratingValue: item.attributes.ratingValue,
           category: {
-            id: item.attributes.category.id,
-            name: item.attributes.category.name,
-            description: item.attributes.category.description,
-            createdAt: item.attributes.category.createdAt,
-            updatedAt: item.attributes.category.updatedAt,
-            publishedAt: item.attributes.category.publishedAt,
+            id: item.attributes.category.data?.id,
+            name: item.attributes.category.data?.attributes?.name,
+            description: item.attributes.category.data?.attributes?.description,
           },
           images: item.attributes.images.data.map((image: any) => ({
             id: image.id,
@@ -259,15 +111,21 @@ const productModel: ProductModel = {
       }));
 
       // Update the products array
-      actions.setProduct(transformedData);
+      actions.setItems(updatedData);
     } catch (error) {
-      actions.setError("Error fetching products");
+      actions.setErrorMsg(`Error fetching products ${error}`);
+    } finally {
+      actions.setLoading(false);
     }
   }),
 
-  productErrorMsg: "",
-  setError: action((state, payload) => {
-    state.productErrorMsg = payload;
+  ErrorMsg: "",
+  setErrorMsg: action((state, payload) => {
+    state.ErrorMsg = payload;
+  }),
+  loading: false,
+  setLoading: action((state, payload) => {
+    state.loading = payload;
   }),
 };
 

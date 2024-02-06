@@ -25,12 +25,6 @@
       "required": true,
       "default": 0
     },
-    "category": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::category.category",
-      "inversedBy": "products"
-    },
     "images": {
       "type": "media",
       "multiple": true,
@@ -53,6 +47,12 @@
     },
     "ratingValue": {
       "type": "integer"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "products"
     }
   }
 }

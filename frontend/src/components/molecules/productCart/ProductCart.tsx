@@ -58,9 +58,8 @@ const ProductCart: React.FC<productProps> = ({
   description,
   category,
 }) => {
+  const dir = process.env.NEXT_PUBLIC_DOMAIN_NAME;
   const { downMdScreen, downSmScreen } = useResponsive();
-
-  console.log("Image Src", images);
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
@@ -70,6 +69,9 @@ const ProductCart: React.FC<productProps> = ({
     setOpen(false);
   };
 
+  console.log("Dir", dir);
+  console.log("IMg src", `${dir}${images[0].url}`);
+
   return (
     <>
       <Box
@@ -78,10 +80,10 @@ const ProductCart: React.FC<productProps> = ({
         }`}
       >
         <Box className={styles.productCart__header}>
-          <Image
+          <img
             width={200}
             height={100}
-            src={images[0].url}
+            src={`${dir}${images[0].url}`}
             alt={"imgAlt"}
             className={styles.productCart__image}
           />

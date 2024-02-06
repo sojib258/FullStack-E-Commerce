@@ -4,31 +4,22 @@ import useResponsive from "@/hooks/useResponsive";
 import { Masonry } from "@mui/lab";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useStoreActions, useStoreState } from "../../../../store/";
 import styles from "./products.module.scss";
 const Products = () => {
-  const products = useStoreState((state) => state.product.products);
-  const fetchProducts = useStoreActions(
-    (actions) => actions.product.fetchProducts
-  );
+  const { items: products, loading } = useStoreState((state) => state.product);
+  const { category, product } = useStoreActions((actions) => actions);
+
+  const fetchProducts = product.fetchItems;
+  const fetchCategories = category.fetchItems;
 
   console.log("Product", products);
-
-  const [loading, setLoading] = useState(true);
-
   console.log("Loading", loading);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        await fetchProducts();
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
+    fetchProducts();
+    fetchCategories();
   }, []);
 
   const { smScreen } = useResponsive();
@@ -52,7 +43,7 @@ const Products = () => {
         />
       </Box>
       {loading ? (
-        <Typography>Loading...</Typography>
+        <Typography variant="h6">Loading...</Typography>
       ) : (
         <Masonry
           columns={{ xs: 2, sm: 3, md: 4, lg: 5, xl: 6 }}

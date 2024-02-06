@@ -714,36 +714,6 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
-export interface ApiMediasMedias extends Schema.CollectionType {
-  collectionName: 'media';
-  info: {
-    singularName: 'medias';
-    pluralName: 'media';
-    displayName: 'Media';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    src: Attribute.Media;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::medias.medias',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::medias.medias',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiProductProduct extends Schema.CollectionType {
   collectionName: 'products';
   info: {
@@ -759,16 +729,16 @@ export interface ApiProductProduct extends Schema.CollectionType {
     name: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
     price: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
-    category: Attribute.Relation<
-      'api::product.product',
-      'manyToOne',
-      'api::category.category'
-    >;
     images: Attribute.Media;
     stock: Attribute.Integer;
     discountPrice: Attribute.Integer;
     Availability: Attribute.Boolean;
     ratingValue: Attribute.Integer;
+    category: Attribute.Relation<
+      'api::product.product',
+      'manyToOne',
+      'api::category.category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -804,7 +774,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::category.category': ApiCategoryCategory;
-      'api::medias.medias': ApiMediasMedias;
       'api::product.product': ApiProductProduct;
     }
   }
