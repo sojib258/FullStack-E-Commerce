@@ -38,6 +38,9 @@ interface ProductAttributes {
   Availability: boolean;
   ratingValue?: number;
   category: Category;
+  isPopular: boolean;
+  isFeatured: boolean;
+  isHotDeals: boolean;
   images: ImageData[];
 }
 
@@ -84,12 +87,15 @@ const productModel: ProductModel = {
           discountPrice: item.attributes.discountPrice,
           Availability: item.attributes.Availability,
           ratingValue: item.attributes.ratingValue,
+          isPopular: item.attributes.isPopular,
+          isFeatured: item.attributes.isFeatured,
+          isHotDeals: item.attributes.isHotDeals,
           category: {
             id: item.attributes.category.data?.id,
             name: item.attributes.category.data?.attributes?.name,
             description: item.attributes.category.data?.attributes?.description,
           },
-          images: item.attributes.images.data.map((image: any) => ({
+          images: item.attributes.images.data.slice(-4).map((image: any) => ({
             id: image.id,
             alternativeText: image.attributes.alternativeText,
             width: image.attributes.width,

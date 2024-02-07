@@ -3,22 +3,30 @@ import Stock from "@/components/atoms/stockStatus/Stock";
 import Quantity from "@/components/molecules/addQuantity/Quantity";
 import Rating from "@/components/molecules/ratings/Rating";
 import SocialIcon from "@/components/molecules/socialIcons/SocialIcon";
-import CloseIcon from "@mui/icons-material/Close";
-import Dialog from "@mui/material/Dialog";
-import DialogContent from "@mui/material/DialogContent";
-import IconButton from "@mui/material/IconButton";
-
 import useResponsive from "@/hooks/useResponsive";
+import CloseIcon from "@mui/icons-material/Close";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import { Stack } from "@mui/material";
 import Box from "@mui/material/Box";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
 import Grid from "@mui/material/Grid";
+import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Image from "next/image";
+import { useState } from "react";
 import Slider from "../carousel/QuickViewSlider";
 import styles from "./quickView.module.scss";
+interface Image {
+  id: string | number;
+  width: number;
+  height: number;
+  url: string;
+  alternativeText?: string | undefined;
+}
 
 interface quickViewProps {
   discountPrice?: number;
@@ -29,7 +37,7 @@ interface quickViewProps {
   description?: string;
   ratingValue?: number;
   category?: string;
-  images: any[];
+  images: Image[];
 }
 
 const QuickView: React.FC<quickViewProps> = ({
@@ -43,6 +51,7 @@ const QuickView: React.FC<quickViewProps> = ({
   images,
   handleClose,
 }) => {
+  const [imgSrc, setImgSrc] = useState(images[0].url);
   const theme = useTheme();
   const mdToLg = useMediaQuery(theme.breakpoints.between("md", "lg"));
   const { downSmScreen } = useResponsive();
@@ -50,6 +59,12 @@ const QuickView: React.FC<quickViewProps> = ({
   const discount = discountPrice
     ? Math.floor(((price - discountPrice) / price) * 100)
     : null;
+
+  const handleImgSrc = (url: string) => {
+    setImgSrc(url);
+  };
+
+  console.log("ImageSrc", imgSrc);
 
   return (
     <>
@@ -71,7 +86,24 @@ const QuickView: React.FC<quickViewProps> = ({
           >
             {/* Left Slider Section */}
             <Grid item xs={12} md={6} className={styles.quickView__leftContent}>
-              <Slider images={images} />
+              <Slider imageSrc={imgSrc} />
+              <Box className={styles.quickView__imagesWrapper}>
+                {images.map((item) => (
+                  <Image
+                    key={item.id}
+                    width={100}
+                    height={100}
+                    src={`${process.env.NEXT_PUBLIC_DOMAIN_NAME}${item.url}`}
+                    alt={
+                      item.alternativeText
+                        ? item.alternativeText
+                        : "product image"
+                    }
+                    onClick={() => handleImgSrc(item.url)}
+                    className={styles.quickView__images}
+                  />
+                ))}
+              </Box>
             </Grid>
 
             {/* Right Content Section */}

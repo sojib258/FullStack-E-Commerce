@@ -1,11 +1,23 @@
 @import "../../../styles/all.module.scss";
 .quickView {
-  width: 100%;
+  width: 1100px;
   height: auto;
   padding: 20px;
   background-color: $white;
   display: flex;
   flex-direction: row;
+  &__imagesWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__images {
+    width: auto;
+    height: 80px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
   &__crossIcon {
     position: absolute;
     top: 8px;
@@ -123,6 +135,7 @@
 
   // For Medium To Large Screen
   &.quickView__mdToLg_screen {
+    width: 800px;
     .quickView__productTitle {
       font-size: 32px;
     }
@@ -133,6 +146,7 @@
 
   // For Small Screen
   &.quickView__smallScreen {
+    width: 100% !important;
     padding: 10px 5px;
     .quickView__wishListIcon {
       padding: 7px;

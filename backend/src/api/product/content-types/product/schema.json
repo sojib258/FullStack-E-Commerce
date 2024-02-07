@@ -21,7 +21,7 @@
       "required": true
     },
     "price": {
-      "type": "integer",
+      "type": "decimal",
       "required": true,
       "default": 0
     },
@@ -53,6 +53,18 @@
       "relation": "manyToOne",
       "target": "api::category.category",
       "inversedBy": "products"
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "default": false
+    },
+    "isHotDeals": {
+      "type": "boolean",
+      "default": false
+    },
+    "isPopular": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

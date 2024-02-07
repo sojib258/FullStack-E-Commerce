@@ -1,11 +1,11 @@
 import Button from "@/components/atoms/button/Button";
 import ProductCart from "@/components/molecules/productCart/ProductCart";
 import useResponsive from "@/hooks/useResponsive";
+import { useStoreActions, useStoreState } from "@/store";
 import { Masonry } from "@mui/lab";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { useEffect } from "react";
-import { useStoreActions, useStoreState } from "../../../../store/";
 import styles from "./products.module.scss";
 const Products = () => {
   const { items: products, loading } = useStoreState((state) => state.product);
@@ -13,9 +13,6 @@ const Products = () => {
 
   const fetchProducts = product.fetchItems;
   const fetchCategories = category.fetchItems;
-
-  console.log("Product", products);
-  console.log("Loading", loading);
 
   useEffect(() => {
     fetchProducts();

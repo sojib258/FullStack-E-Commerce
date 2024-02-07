@@ -15,28 +15,6 @@ interface Image {
   height: number;
   url: string;
   alternativeText?: string | undefined;
-  formats: {
-    thumbnail?: {
-      width: number;
-      height: number;
-      url: string;
-    };
-    small?: {
-      width: number;
-      height: number;
-      url: string;
-    };
-    medium?: {
-      width: number;
-      height: number;
-      url: string;
-    };
-    large?: {
-      width: number;
-      height: number;
-      url: string;
-    };
-  };
 }
 
 interface productProps {
@@ -58,7 +36,6 @@ const ProductCart: React.FC<productProps> = ({
   description,
   category,
 }) => {
-  const dir = process.env.NEXT_PUBLIC_DOMAIN_NAME;
   const { downMdScreen, downSmScreen } = useResponsive();
 
   const [open, setOpen] = useState(false);
@@ -69,9 +46,6 @@ const ProductCart: React.FC<productProps> = ({
     setOpen(false);
   };
 
-  console.log("Dir", dir);
-  console.log("IMg src", `${dir}${images[0].url}`);
-
   return (
     <>
       <Box
@@ -80,10 +54,10 @@ const ProductCart: React.FC<productProps> = ({
         }`}
       >
         <Box className={styles.productCart__header}>
-          <img
+          <Image
             width={200}
             height={100}
-            src={`${dir}${images[0].url}`}
+            src={`${process.env.NEXT_PUBLIC_DOMAIN_NAME}${images[0].url}`}
             alt={"imgAlt"}
             className={styles.productCart__image}
           />

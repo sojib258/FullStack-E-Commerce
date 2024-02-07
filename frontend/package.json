@@ -22,8 +22,8 @@
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-magnifier": "^3.0.4",
     "react-multi-carousel": "^2.8.4",
-    "react-responsive-carousel": "^3.2.23",
     "sass": "^1.69.5"
   },
   "devDependencies": {

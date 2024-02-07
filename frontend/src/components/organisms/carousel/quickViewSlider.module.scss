@@ -1,8 +1,7 @@
 .slider {
   width: 100%;
-  height: auto;
-  &__imageWrapper {
-    width: 100%;
-    height: auto;
+  min-height: 450px;
+  &__mainImage img {
+    border-radius: 8px;
   }
 }

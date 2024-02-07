@@ -6,18 +6,17 @@ import Banner from "@/components/organisms/homePageBanner/mainBanner/Banner";
 import ProductsBanner from "@/components/organisms/homePageBanner/productsBanner/ProductsBanner";
 import LatestNews from "@/components/organisms/latestNews/LatestNews";
 import Newsletter from "@/components/organisms/newsLetter/NewsLetter";
+import Featured from "@/components/organisms/products/featured/Featured";
+import HotDeals from "@/components/organisms/products/hotDeals/HotDeals";
 import PopularProducts from "@/components/organisms/products/popular/Products";
 import Testimonial from "@/components/organisms/testimonial/Testimonial";
 import DefaultTemplate from "@/components/templates/defaultTemplate/DefaultTemplate";
 import useResponsive from "@/hooks/useResponsive";
 import Box from "@mui/material/Box";
-import { useStoreActions } from "../../../store/index";
 import styles from "./home.module.scss";
 
 const Home = () => {
   const { xsScreen, smScreen, lgScreen } = useResponsive();
-
-  const addData = useStoreActions((actions) => actions.product.addProduct);
 
   return (
     <DefaultTemplate>
@@ -70,7 +69,7 @@ const Home = () => {
       </Box>
 
       {/* Hot Deals Area */}
-      {/* <Box
+      <Box
         className={`${styles.hotDeals} 
         ${smScreen && styles.hotDeals__smScreen}
         `}
@@ -78,7 +77,7 @@ const Home = () => {
         <Box className={styles.hotDeals__wrapper}>
           <HotDeals />
         </Box>
-      </Box> */}
+      </Box>
 
       {/* Discount Banner Area */}
       <Box
@@ -92,7 +91,7 @@ const Home = () => {
       </Box>
 
       {/* Featured Products Area */}
-      {/* <Box
+      <Box
         className={`${styles.featuredProduct} 
         ${smScreen && styles.featuredProduct__smScreen}
         `}
@@ -100,7 +99,7 @@ const Home = () => {
         <Box className={styles.featuredProduct__wrapper}>
           <Featured />
         </Box>
-      </Box> */}
+      </Box>
 
       {/* Latest News Area */}
       <Box

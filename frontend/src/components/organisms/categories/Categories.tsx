@@ -1,5 +1,6 @@
 import CategoryItem from "@/components/molecules/categoryItem/CategoryItem";
 import useResponsive from "@/hooks/useResponsive";
+import { useStoreState } from "@/store";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Carousel from "react-multi-carousel";
@@ -7,6 +8,10 @@ import "react-multi-carousel/lib/styles.css";
 import styles from "./categories.module.scss";
 
 const Categories = () => {
+  const { items: categories, loading } = useStoreState(
+    (state) => state.category
+  );
+
   const { smScreen } = useResponsive();
   const responsive = {
     xl: {
@@ -32,57 +37,6 @@ const Categories = () => {
     },
   };
 
-  const categories = [
-    {
-      imgSrc: "/img/13.png",
-      text: "Traditional Favourites",
-    },
-    {
-      imgSrc: "/img/6.jpg",
-      text: "Sweet Delicacies",
-    },
-    {
-      imgSrc: "/img/7.jpg",
-      text: "Traditional Favourites",
-    },
-    {
-      imgSrc: "/img/11.jpg",
-      text: "Steamed Goodness",
-    },
-    {
-      imgSrc: "/img/12.jpg",
-      text: "Traditional Favourites",
-    },
-    {
-      imgSrc: "/img/13.png",
-      text: "Traditional Favourites",
-    },
-    {
-      imgSrc: "/img/13.png",
-      text: "Traditional Favourites",
-    },
-    {
-      imgSrc: "/img/13.png",
-      text: "Traditional Favourites",
-    },
-    {
-      imgSrc: "/img/13.png",
-      text: "Steamed Goodness",
-    },
-    {
-      imgSrc: "/img/13.png",
-      text: "Traditional Favourites",
-    },
-    {
-      imgSrc: "/img/13.png",
-      text: "Traditional Favourites",
-    },
-    {
-      imgSrc: "/img/13.png",
-      text: "Traditional Favourites",
-    },
-  ];
-
   return (
     <Box
       className={`categories ${styles.categories} ${
@@ -95,7 +49,10 @@ const Categories = () => {
       <Carousel showDots={smScreen && true} responsive={responsive} ssr={true}>
         {categories.map((item, index) => (
           <Box key={index}>
-            <CategoryItem key={index} imgSrc={item.imgSrc} text={item.text} />
+            <CategoryItem
+              imgSrc={`${process.env.NEXT_PUBLIC_DOMAIN_NAME}${item.image.url}`}
+              text={item.name}
+            />
           </Box>
         ))}
       </Carousel>

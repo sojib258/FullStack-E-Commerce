@@ -1,51 +1,18 @@
 import Button from "@/components/atoms/button/Button";
 import ProductCart from "@/components/molecules/productCart/ProductCart";
 import useResponsive from "@/hooks/useResponsive";
+import { useStoreState } from "@/store";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import styles from "./featured.module.scss";
 const Featured = () => {
+  const { items: products, loading } = useStoreState((state) => state.product);
   const { smScreen } = useResponsive();
 
-  const featured = [
-    {
-      imgSrc: "/img/12.jpg",
-      title:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, quod?",
-      price: 99,
-      discountPrice: 90,
-      ratingValue: 4,
-    },
-    {
-      imgSrc: "/img/8.jpg",
-      title: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-      price: 29,
-      ratingValue: 4,
-    },
-    {
-      imgSrc: "/img/9.jpg",
-      title:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste necessitatibus numquam illum!",
-      price: 40,
-      discountPrice: 29,
-      ratingValue: 4,
-    },
-    {
-      imgSrc: "/img/10.jpg",
-      title: "Lorem ipsum dolor sit.",
-      price: 10,
-      ratingValue: 4,
-    },
-    {
-      imgSrc: "/img/11.jpg",
-      title:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus quod ex molestiae, accusamus soluta quia.",
-      price: 200,
-      discountPrice: 100,
-      ratingValue: 4,
-    },
-  ];
+  const featuredProducts = products.filter(
+    (item) => item.attributes.isFeatured
+  );
 
   return (
     <Box
@@ -67,14 +34,16 @@ const Featured = () => {
         />
       </Box>
       <Grid container spacing={{ xs: 1, sm: 2 }}>
-        {featured.map((item, index) => (
+        {featuredProducts.map((item, index) => (
           <Grid flexGrow={1} key={index} xs={6} sm={4} md={3} lg={2.4} item>
             <ProductCart
-              discountPrice={item.discountPrice}
-              price={item.price}
-              title={item.title}
-              imgSrc={item.imgSrc}
-              value={item.ratingValue}
+              ratingValue={item.attributes.ratingValue}
+              price={item.attributes.price}
+              title={item.attributes.name}
+              category={item.attributes.category.name}
+              description={item.attributes.description}
+              discountPrice={item.attributes.discountPrice}
+              images={item.attributes.images}
             />
           </Grid>
         ))}
