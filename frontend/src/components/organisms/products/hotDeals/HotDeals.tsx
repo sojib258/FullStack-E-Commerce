@@ -1,21 +1,13 @@
 import Button from "@/components/atoms/button/Button";
-import ProductCart from "@/components/molecules/productCart/ProductCart";
-import useResponsive from "@/hooks/useResponsive";
-import { Grid } from "@mui/material";
 import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import { useStoreState } from "../../../../store/";
 import styles from "./hotDeals.module.scss";
 const HotDeals = () => {
-  const { items, loading } = useStoreState((state) => state.product);
-  const { smScreen } = useResponsive();
-
-  const hotDealsProducts = items.filter((item) => item.attributes.isHotDeals);
+  // const hotDealsProducts = items.filter((item) => item.attributes.isHotDeals);
 
   return (
-    <Box
-      className={`${styles.hotDeals} ${smScreen && styles.hotDeals__smScreen}`}
-    >
+    <Box className={styles.hotDeals}>
       <Box className={styles.hotDeals__head}>
         <Typography className={styles.hotDeals__headText}>Hot Deals</Typography>
         <Button
@@ -30,7 +22,7 @@ const HotDeals = () => {
         />
       </Box>
       <Grid container spacing={{ xs: 1, sm: 2 }}>
-        {hotDealsProducts.map((item, index) => (
+        {/* {hotDealsProducts.map((item, index) => (
           <Grid flexGrow={1} key={index} xs={6} sm={4} md={3} lg={2.4} item>
             <ProductCart
               ratingValue={item.attributes.ratingValue}
@@ -42,7 +34,7 @@ const HotDeals = () => {
               images={item.attributes.images}
             />
           </Grid>
-        ))}
+        ))} */}
       </Grid>
     </Box>
   );

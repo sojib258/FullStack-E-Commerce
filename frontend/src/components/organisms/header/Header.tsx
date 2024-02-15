@@ -1,9 +1,11 @@
+"use client";
 import useResponsive from "@/hooks/useResponsive";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import Image from "next/image";
+import Link from "next/link";
 import NavbarIcon from "../../molecules/navbarIcon/NavbarIcon";
 import SearchBar from "../../molecules/searchBar/SearchBar";
 import styles from "./header.module.scss";
@@ -36,15 +38,17 @@ const Header: React.FC = () => {
             </IconButton>
           )}
           {/* Logo =============================== */}
-          <Image
-            className={`${styles.navbar__logoImg} ${
-              downSmScreen && styles.navbar__logoImg_sm
-            }`}
-            width={250}
-            height={40}
-            src={"/icons/logo.png"}
-            alt="Logo Image"
-          />
+          <Link href={"/"}>
+            <Image
+              className={`${styles.navbar__logoImg} ${
+                downSmScreen && styles.navbar__logoImg_sm
+              }`}
+              width={250}
+              height={40}
+              src={"/icons/logo.png"}
+              alt="Logo Image"
+            />
+          </Link>
 
           {/* Search Bar =============================== */}
           {mdScreen && (

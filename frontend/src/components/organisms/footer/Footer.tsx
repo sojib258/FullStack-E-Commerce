@@ -1,10 +1,11 @@
-import Link from "@/components/atoms/link/Link";
+"use client";
 import SocialIcon from "@/components/molecules/socialIcons/SocialIcon";
 import useResponsive from "@/hooks/useResponsive";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./footer.module.scss";
 const Footer = () => {
   const { smScreen, mdScreen, lgScreen } = useResponsive();
@@ -33,12 +34,7 @@ const Footer = () => {
   ];
 
   return (
-    <Box
-      className={`${styles.footer} 
-      ${lgScreen && styles.footer__largeScreen} 
-      ${mdScreen && styles.footer__mediumScreen} 
-      ${smScreen && styles.footer__smallScreen}`}
-    >
+    <Box component={"footer"} className={styles.footer}>
       <Grid spacing={0} container>
         <Grid item sm={8} md={6} lg={4}>
           <Box
@@ -83,7 +79,13 @@ const Footer = () => {
             </Typography>
             <Box className={styles.footer__links} component={"ul"}>
               {knowUs.map((item, index) => (
-                <Link key={index} text={item} href={`/${item}`} />
+                <Link
+                  className={styles.footer__link}
+                  key={index}
+                  href={`/${item}`}
+                >
+                  {item}
+                </Link>
               ))}
             </Box>
           </Box>
@@ -97,7 +99,13 @@ const Footer = () => {
             </Typography>
             <Box className={styles.footer__links} component={"ul"}>
               {consumers.map((item, index) => (
-                <Link key={index} text={item} href={`/${item}`} />
+                <Link
+                  className={styles.footer__link}
+                  key={index}
+                  href={`/${item}`}
+                >
+                  {item}
+                </Link>
               ))}
             </Box>
           </Box>
@@ -111,7 +119,13 @@ const Footer = () => {
             </Typography>
             <Box className={styles.footer__links} component={"ul"}>
               {seller.map((item, index) => (
-                <Link key={index} text={item} href={`/${item}`} />
+                <Link
+                  className={styles.footer__link}
+                  key={index}
+                  href={`/${item}`}
+                >
+                  {item}
+                </Link>
               ))}
             </Box>
           </Box>
@@ -123,7 +137,13 @@ const Footer = () => {
             <Typography className={styles.footer__head}>Categories</Typography>
             <Box className={styles.footer__links} component={"ul"}>
               {categories.map((item, index) => (
-                <Link key={index} text={item} href={`/${item}`} />
+                <Link
+                  className={styles.footer__link}
+                  key={index}
+                  href={`/${item}`}
+                >
+                  {item}
+                </Link>
               ))}
             </Box>
           </Box>

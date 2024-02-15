@@ -1,29 +1,10 @@
 import Button from "@/components/atoms/button/Button";
-import ProductCart from "@/components/molecules/productCart/ProductCart";
-import useResponsive from "@/hooks/useResponsive";
-import { useStoreActions, useStoreState } from "@/store";
-import { Masonry } from "@mui/lab";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { useEffect } from "react";
 import styles from "./products.module.scss";
 const Products = () => {
-  const { items: products, loading } = useStoreState((state) => state.product);
-  const { category, product } = useStoreActions((actions) => actions);
-
-  const fetchProducts = product.fetchItems;
-  const fetchCategories = category.fetchItems;
-
-  useEffect(() => {
-    fetchProducts();
-    fetchCategories();
-  }, []);
-
-  const { smScreen } = useResponsive();
   return (
-    <Box
-      className={`${styles.products} ${smScreen && styles.products__smScreen}`}
-    >
+    <Box className={styles.products}>
       <Box className={styles.products__head}>
         <Typography className={styles.products__headText}>
           Popular Products
@@ -39,7 +20,7 @@ const Products = () => {
           text="View All"
         />
       </Box>
-      {loading ? (
+      {/* {loading ? (
         <Typography variant="h6">Loading...</Typography>
       ) : (
         <Masonry
@@ -60,7 +41,7 @@ const Products = () => {
             </Box>
           ))}
         </Masonry>
-      )}
+      )} */}
     </Box>
   );
 };

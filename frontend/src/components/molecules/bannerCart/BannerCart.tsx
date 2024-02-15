@@ -1,5 +1,4 @@
 import Button from "@/components/atoms/button/Button";
-import useResponsive from "@/hooks/useResponsive";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import styles from "./bannerCart.module.scss";
@@ -18,13 +17,10 @@ const BannerCart: React.FC<BannerCartProps> = ({
   price,
   imgSrc,
 }) => {
-  const { mdScreen } = useResponsive();
   return (
     <>
       <Box
-        className={`${styles.bannerCart} ${
-          mdScreen && styles.bannerCart__mdScreen
-        }`}
+        className={styles.bannerCart}
         sx={{
           background: `linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3)), url(${imgSrc})`,
         }}

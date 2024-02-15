@@ -1,4 +1,4 @@
-@import "../../../../styles/all.module.scss";
+@import "@/styles/global.module.scss";
 .hotDeals {
   &__head {
     display: flex;
@@ -7,17 +7,20 @@
     margin-bottom: 32px;
   }
   &__headText {
-    color: $gray5;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 120%;
+    @extend %heading-05-600;
+    color: $gray-1000;
   }
 
   // For Responsive
-  &__smScreen {
-    .hotDeals__headText {
-      font-size: 32px;
+  @include downMdScreen {
+    &__headText {
+      font-size: $fs-xxxl;
+    }
+  }
+
+  @include downSmScreen {
+    &__headText {
+      font-size: $fs-md;
     }
   }
 }

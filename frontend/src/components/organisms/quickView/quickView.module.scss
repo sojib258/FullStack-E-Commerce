@@ -1,4 +1,4 @@
-@import "../../../styles/all.module.scss";
+@import "@/styles/global.module.scss";
 .quickView {
   width: 1100px;
   height: auto;
@@ -10,11 +10,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
   }
   &__images {
     width: auto;
     height: 80px;
-    margin-right: 5px;
+    margin: 5px 5px 5px 0px;
     cursor: pointer;
     border-radius: 4px;
   }
@@ -145,8 +146,11 @@
   }
 
   // For Small Screen
-  &.quickView__smallScreen {
-    width: 100% !important;
+  &.quickView__downMediumScreen {
+    width: 500px;
+  }
+  &.quickView__downSmallScreen {
+    width: 100%;
     padding: 10px 5px;
     .quickView__wishListIcon {
       padding: 7px;

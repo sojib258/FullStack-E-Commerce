@@ -1,3 +1,4 @@
+"use client";
 import Button from "@/components/atoms/button/Button";
 import useResponsive from "@/hooks/useResponsive";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
@@ -27,14 +28,10 @@ const NewsCart: React.FC<newsCartProps> = ({
   date,
   month,
 }) => {
-  const { smScreen, mdScreen, lgScreen, downLgScreen } = useResponsive();
+  const { downLgScreen } = useResponsive();
   const titleLength = downLgScreen ? 45 : 70;
   return (
-    <Box
-      className={`${styles.newsCart} ${smScreen && styles.newsCart__smScreen} ${
-        mdScreen && styles.newsCart__mdScreen
-      } ${lgScreen && styles.newsCart__lgScreen}`}
-    >
+    <Box className={styles.newsCart}>
       <Box className={styles.newsCart__header}>
         <Image
           className={styles.newsCart__img}
@@ -97,4 +94,3 @@ const NewsCart: React.FC<newsCartProps> = ({
 };
 
 export default NewsCart;
-// TODO: Slice Tttle

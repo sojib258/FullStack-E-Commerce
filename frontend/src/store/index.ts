@@ -23,3 +23,12 @@ export const useStoreDispatch = typedHooks.useStoreDispatch;
 export const useStoreState = typedHooks.useStoreState;
 
 export default store;
+
+// //app
+//   loading.tsx
+//   error.tsx
+//   page.tsx
+//     //product
+//     page.tsx
+//       //[singleProduct]
+//       page.tsx

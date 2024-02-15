@@ -1,4 +1,4 @@
-@import "../../../styles/all.module.scss";
+@import "@/styles/global.module.scss";
 .bannerCart {
   width: 100%;
   height: 400px;
@@ -46,7 +46,7 @@
     color: $warning;
   }
 
-  &__mdScreen {
+  @include mdScreen {
     height: 500px;
     .bannerCart__subhead {
       font-size: 14px;

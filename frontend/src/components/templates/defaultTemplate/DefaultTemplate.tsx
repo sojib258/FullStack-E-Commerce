@@ -1,6 +1,5 @@
 import Footer from "@/components/organisms/footer/Footer";
 import Header from "@/components/organisms/header/Header";
-import Box from "@mui/material/Box";
 import { ReactNode } from "react";
 
 interface DefaultTemplateProps {
@@ -11,7 +10,7 @@ const DefaultTemplate: React.FC<DefaultTemplateProps> = ({ children }) => {
   return (
     <>
       <Header />
-      <Box>{children}</Box>
+      <main>{children}</main>
       <Footer />
     </>
   );

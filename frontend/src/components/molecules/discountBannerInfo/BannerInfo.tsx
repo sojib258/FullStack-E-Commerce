@@ -1,12 +1,10 @@
 import Button from "@/components/atoms/button/Button";
-import useResponsive from "@/hooks/useResponsive";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import styles from "./bannerInfo.module.scss";
 const BannerInfo = () => {
-  const { downSmScreen } = useResponsive();
   return (
-    <Box className={`${styles.info} ${downSmScreen && styles.info__smScreen}`}>
+    <Box className={styles.info}>
       <Typography variant="h3" className={styles.info__offerName}>
         SUMMER SALE
       </Typography>

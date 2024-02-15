@@ -1,4 +1,4 @@
-@import "../../../styles/all.module.scss";
+@import "@/styles/global.module.scss";
 .featured {
   display: flex;
   justify-content: flex-start;
@@ -10,31 +10,24 @@
     margin-right: 10px;
   }
   &__title {
-    color: $gray5;
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 120%; /* 19.2px */
+    @extend %body-md-600;
+    color: $gray-1000;
   }
   &__description {
-    color: $gray4;
-    font-size: 8px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%; /* 21px */
+    @extend %body-sm-400;
+    color: $gray-500;
   }
 
   // For Responsive
 
-  &__smallScreen {
-    .featured__icon {
-      width: 35px;
+  @include downSmScreen {
+    width: 250px;
+    margin: 0px auto;
+    &__title {
+      font-size: $fs-sm;
     }
-    .featured__title {
-      font-size: 16px;
-    }
-    .featured__description {
-      font-size: 14px;
+    &__description {
+      font-size: $fs-xs;
     }
   }
 }

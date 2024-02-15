@@ -1,3 +1,4 @@
+"use client";
 import InputText from "@/components/atoms/inputText/InputText";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import Button from "@mui/material/Button";

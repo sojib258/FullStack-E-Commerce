@@ -415,7 +415,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
     name: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
     price: Attribute.Decimal & Attribute.Required & Attribute.DefaultTo<0>;
-    images: Attribute.Media;
+    images: Attribute.Media & Attribute.Required;
     stock: Attribute.Integer;
     discountPrice: Attribute.Integer;
     Availability: Attribute.Boolean;

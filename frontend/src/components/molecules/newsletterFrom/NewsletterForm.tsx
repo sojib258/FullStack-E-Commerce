@@ -1,6 +1,6 @@
 import Button from "@/components/atoms/button/Button";
 import TextField from "@/components/atoms/textField/TextField";
-import { Stack } from "@mui/material";
+import Stack from "@mui/material/Stack";
 import styles from "./newsletterForm.module.scss";
 interface newsLetterProps {
   customStyle?: object;

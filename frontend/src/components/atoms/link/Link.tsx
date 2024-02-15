@@ -1,4 +1,4 @@
-import NextLink from "next/link";
+import Link from "next/link";
 import styles from "./link.module.scss";
 interface LinkProps {
   href: string;
@@ -6,12 +6,12 @@ interface LinkProps {
   text?: string;
 }
 
-const Link: React.FC<LinkProps> = ({ href, customStyle, text }) => {
+const Links: React.FC<LinkProps> = ({ href, customStyle, text }) => {
   return (
-    <NextLink style={customStyle} className={styles.link} href={href}>
+    <Link style={customStyle} className={styles.link} href={href}>
       {text}
-    </NextLink>
+    </Link>
   );
 };
 
-export default Link;
+export default Links;

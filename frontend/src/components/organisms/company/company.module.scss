@@ -1,3 +1,4 @@
+@import "@/styles/global.module.scss";
 .company {
   width: 100%;
   height: auto;
@@ -15,7 +16,7 @@
       margin-bottom: 0px;
     }
   }
-  &__smScreen {
+  @include smScreen {
     flex-direction: row;
     justify-content: space-between;
     .company__item {

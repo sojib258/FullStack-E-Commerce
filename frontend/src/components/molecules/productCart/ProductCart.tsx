@@ -1,9 +1,11 @@
+"use client";
 import Button from "@/components/atoms/button/Button";
-import QuickView from "@/components/organisms/quickView/QuickView";
+import QuickViewDialog from "@/components/organisms/quickView/QuickViewDialog";
 import useResponsive from "@/hooks/useResponsive";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 import ProductIcon from "../productCartIcons/ProductIcons";
 import Rating from "../ratings/Rating";
@@ -18,6 +20,7 @@ interface Image {
 }
 
 interface productProps {
+  id: string | number;
   images: Image[];
   title: string;
   price: number;
@@ -28,6 +31,7 @@ interface productProps {
 }
 
 const ProductCart: React.FC<productProps> = ({
+  id,
   images,
   price,
   discountPrice,
@@ -55,8 +59,8 @@ const ProductCart: React.FC<productProps> = ({
       >
         <Box className={styles.productCart__header}>
           <Image
-            width={200}
-            height={100}
+            width={210}
+            height={210}
             src={`${process.env.NEXT_PUBLIC_DOMAIN_NAME}${images[0].url}`}
             alt={"imgAlt"}
             className={styles.productCart__image}
@@ -69,17 +73,27 @@ const ProductCart: React.FC<productProps> = ({
             </Box>
           </Box>
         </Box>
-        <Box className={styles.productCart__content}>
-          <Typography className={styles.productCart__title}>{title}</Typography>
-          <Box mb={1}>
-            <Rating
-              fontSize={downSmScreen ? "15px!important" : "18px!important"}
-              value={ratingValue}
-              readOnly
-            />
+
+        <Link
+          className={styles.productCart__link}
+          href={`/products/${title}-${id}`}
+        >
+          <Box className={styles.productCart__content}>
+            <Typography className={styles.productCart__title}>
+              {title}
+            </Typography>
+            <Box mb={1}>
+              <Rating
+                fontSize={downSmScreen ? "15px!important" : "18px!important"}
+                value={ratingValue}
+                readOnly
+              />
+            </Box>
+            <Typography className={styles.productCart__amount}>
+              (2 kg)
+            </Typography>
           </Box>
-          <Typography className={styles.productCart__amount}>(2 kg)</Typography>
-        </Box>
+        </Link>
 
         <Box className={styles.productCart__footer} sx={{ marginTop: "auto" }}>
           <Box sx={{ display: "flex" }}>
@@ -115,8 +129,8 @@ const ProductCart: React.FC<productProps> = ({
           </Box>
           <Button
             customStyle={{
-              fontSize: downMdScreen && "10px",
-              padding: downMdScreen && "8px 10px",
+              fontSize: "12px",
+              padding: "5px 10px",
             }}
             plusIcon
             text="Add"
@@ -124,7 +138,7 @@ const ProductCart: React.FC<productProps> = ({
         </Box>
       </Box>
       {open && (
-        <QuickView
+        <QuickViewDialog
           description={description}
           price={price}
           discountPrice={discountPrice}

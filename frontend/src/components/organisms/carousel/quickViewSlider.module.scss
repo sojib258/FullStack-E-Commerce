@@ -1,7 +1,15 @@
+@import "@/styles/global.module.scss";
 .slider {
   width: 100%;
   min-height: 450px;
   &__mainImage img {
+    width: 100%;
+    height: auto;
     border-radius: 8px;
+  }
+
+  // For Responsive
+  @include downLgScreen {
+    min-height: 320px;
   }
 }

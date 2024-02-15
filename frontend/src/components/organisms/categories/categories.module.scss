@@ -1,13 +1,10 @@
-@import "../../../styles/all.module.scss";
+@import "@/styles/global.module.scss";
 .categories {
   position: relative;
   padding: 0px 0px 0px 0px;
   &__headText {
-    color: $gray5;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 120%;
+    @extend %heading-05-600;
+    color: $gray-1000;
     position: absolute;
     top: 0px;
     display: flex;
@@ -17,11 +14,21 @@
 
   // For Responsive
 
-  &__smScreen {
+  @include smScreen {
     .categories__headText {
-      font-size: 32px;
       top: -2px;
       min-height: 33px;
+    }
+  }
+  @include downMdScreen {
+    &__headText {
+      font-size: $fs-xxxl;
+    }
+  }
+
+  @include downSmScreen {
+    &__headText {
+      font-size: $fs-md;
     }
   }
 }

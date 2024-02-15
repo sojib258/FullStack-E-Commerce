@@ -1,3 +1,4 @@
+"use client";
 import AddIcon from "@mui/icons-material/Add";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";

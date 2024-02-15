@@ -1,8 +1,8 @@
-@import "../../../../styles/all.module.scss";
+@import "@/styles/global.module.scss";
 .banner {
   height: 100%;
   background-color: #edf2ee;
-  padding: 30px 16px 130px 16px;
+  padding: 30px 45px 130px 45px;
   &__Img {
     width: 100%;
     height: auto;
@@ -15,36 +15,37 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
   }
   &__welcome {
     color: $primary;
     font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
+    font-weight: $medium;
     line-height: 100%; /* 14px */
-    letter-spacing: 0.28px;
+    letter-spacing: 2%;
     text-transform: uppercase;
     margin-bottom: 8px;
   }
   &__title {
-    color: $gray5;
-    font-size: 1.75rem;
+    @extend %display-01-600;
     padding-right: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 120%; /* 86.4px */
-    margin-bottom: 12px;
-    text-align: center;
+    margin-bottom: 28px;
+    color: $gray-1000;
+  }
+  &__sale {
+    @extend %heading-05-400;
+    color: $gray-1000;
+    margin-bottom: 6px;
+  }
+  &__saleDiscount {
+    @extend %heading-05-600;
+    color: $warning;
   }
   &__description {
-    color: $gray3;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%; /* 21px */
+    @extend %body-sm-400;
+    color: $gray-600;
     margin-bottom: 32px;
-    text-align: center;
+    max-width: 500px;
   }
   &__rightContent {
     display: flex;
@@ -55,29 +56,51 @@
 
   // For Responsive
 
-  &__smallScreen {
-    padding: 50px 24px 150px 24px;
-    .banner__leftContentGrid {
-      margin-bottom: 0px;
-    }
-    .banner__leftContent {
-      align-items: flex-start;
-      padding-right: 10px;
-    }
-    .banner__title {
-      font-size: 2.25rem;
-      text-align: left;
-    }
-    .banner__description {
-      text-align: left;
+  @include downXlScreen {
+    &__title {
+      font-size: $h2;
     }
   }
-  &__largeScreen {
-    .banner__title {
-      font-size: 4.5rem;
+  @include downLgScreen {
+    &__title {
+      font-size: $h4;
     }
-    .banner__description {
-      font-size: 14px;
+    &__sale {
+      font-size: $fs-xxl;
+    }
+    &__saleDiscount {
+      font-size: $fs-xxl;
+    }
+  }
+  @include downMdScreen {
+    &__title {
+      font-size: $fs-xxl;
+    }
+    &__sale {
+      font-size: $fs-md;
+    }
+    &__saleDiscount {
+      font-size: $fs-md;
+    }
+  }
+  @include downSmScreen {
+    padding: 30px 15px 130px 15px;
+    &__leftContent {
+      align-items: center;
+    }
+    &__title {
+      text-align: center;
+      font-size: $fs-xxl;
+    }
+    &__description {
+      text-align: center;
+      font-size: $fs-xs;
+    }
+    &__sale {
+      font-size: $fs-md;
+    }
+    &__saleDiscount {
+      font-size: $fs-md;
     }
   }
 }

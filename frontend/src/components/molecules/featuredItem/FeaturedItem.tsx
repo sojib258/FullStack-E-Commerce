@@ -1,4 +1,3 @@
-import useResponsive from "@/hooks/useResponsive";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
@@ -16,16 +15,8 @@ const FeaturedItem: React.FC<FeaturedItemProps> = ({
   description,
   altText,
 }) => {
-  const { smScreen, mdScreen, lgScreen } = useResponsive();
-
   return (
-    <Box
-      className={`${styles.featured}
-    ${smScreen && styles.featured__smallScreen}
-    ${mdScreen && styles.featured__mediumScreen}
-    ${lgScreen && styles.featured__largeScreen}
-    `}
-    >
+    <Box className={styles.featured}>
       <Image
         className={styles.featured__icon}
         width={100}

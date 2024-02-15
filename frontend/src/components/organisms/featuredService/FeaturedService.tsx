@@ -1,11 +1,8 @@
 import FeaturedItem from "@/components/molecules/featuredItem/FeaturedItem";
-import useResponsive from "@/hooks/useResponsive";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import styles from "./featured.module.scss";
 const FeaturedService = () => {
-  const { smScreen, lgScreen } = useResponsive();
-
   const featured = [
     {
       iconSrc: "/icons/truck.png",
@@ -35,18 +32,15 @@ const FeaturedService = () => {
 
   return (
     <>
-      <Box
-        className={`${styles.featured}
-        ${smScreen && styles.featured__smallScreen}
-        ${lgScreen && styles.featured__largeScreen}`}
-      >
-        <Grid container>
+      <Box className={styles.featured}>
+        <Grid container className={styles.featured__container}>
           {featured.map((item, index) => (
             <Grid
               className={styles.featured__gridBox}
               key={index}
               item
-              xs={6}
+              xs={12}
+              sm={6}
               lg={3}
             >
               <FeaturedItem

@@ -1,6 +1,5 @@
-import CategoryItem from "@/components/molecules/categoryItem/CategoryItem";
+"use client";
 import useResponsive from "@/hooks/useResponsive";
-import { useStoreState } from "@/store";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Carousel from "react-multi-carousel";
@@ -8,10 +7,6 @@ import "react-multi-carousel/lib/styles.css";
 import styles from "./categories.module.scss";
 
 const Categories = () => {
-  const { items: categories, loading } = useStoreState(
-    (state) => state.category
-  );
-
   const { smScreen } = useResponsive();
   const responsive = {
     xl: {
@@ -47,14 +42,20 @@ const Categories = () => {
         Popular Categories
       </Typography>
       <Carousel showDots={smScreen && true} responsive={responsive} ssr={true}>
-        {categories.map((item, index) => (
+        {/* {categories.map((item, index) => (
           <Box key={index}>
             <CategoryItem
               imgSrc={`${process.env.NEXT_PUBLIC_DOMAIN_NAME}${item.image.url}`}
               text={item.name}
             />
           </Box>
-        ))}
+        ))} */}
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
+          tenetur consequuntur, minus dignissimos id perferendis adipisci vel
+          aliquid exercitationem accusantium, consectetur officia possimus porro
+          eveniet sed numquam, corrupti sapiente illo!
+        </p>
       </Carousel>
     </Box>
   );

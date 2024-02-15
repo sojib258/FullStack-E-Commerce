@@ -1,10 +1,10 @@
-@import "../../../styles/all.module.scss";
+@import "@/styles/global.module.scss";
 .btn {
   margin-left: 3px;
   text-transform: none;
-  color: $gray3;
+  color: $gray-600;
   font-weight: 500;
-  border: 1px solid $gray2;
+  border: 1px solid $gray-400;
   padding: 0px 15px 0px 15px;
   font-size: 0.9rem;
   &:hover {

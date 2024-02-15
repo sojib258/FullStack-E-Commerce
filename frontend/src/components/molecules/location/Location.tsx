@@ -1,3 +1,4 @@
+"use client";
 import SearchInput from "@/components/atoms/inputText/InputText";
 import useResponsive from "@/hooks/useResponsive";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";

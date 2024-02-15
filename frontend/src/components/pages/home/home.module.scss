@@ -1,4 +1,4 @@
-@import "../../../styles/all.module.scss";
+@import "@/styles/global.module.scss";
 // Featured Service Area
 .featuredService {
   width: "100%";
@@ -10,13 +10,13 @@
   }
 
   //   For Responsive
-  &__smScreen {
+  @include smScreen {
     .featured__wrapper {
       width: 85%;
       margin-top: -75px;
     }
   }
-  &__lgScreen {
+  @include lgScreen {
     .featured__wrapper {
       margin-top: -60px;
     }
@@ -35,7 +35,7 @@
   }
 
   // For Responsive
-  &__smScreen {
+  @include smScreen {
     .categories__wrapper {
       width: 85%;
     }
@@ -54,7 +54,7 @@
   }
 
   // For Responsive
-  &__smScreen {
+  @include smScreen {
     .popularProducts__wrapper {
       width: 85%;
     }
@@ -73,7 +73,7 @@
   }
 
   // For Responsive
-  &__smScreen {
+  @include smScreen {
     .productBanner__wrapper {
       width: 85%;
     }
@@ -92,7 +92,7 @@
   }
 
   // For Responsive
-  &__smScreen {
+  @include smScreen {
     .hotDeals__wrapper {
       width: 85%;
     }
@@ -111,7 +111,7 @@
   }
 
   // For Responsive
-  &__smScreen {
+  @include smScreen {
     .discoverBanner__wrapper {
       width: 85%;
     }
@@ -130,7 +130,7 @@
   }
 
   // For Responsive
-  &__smScreen {
+  @include smScreen {
     .featuredProduct__wrapper {
       width: 85%;
     }
@@ -149,7 +149,7 @@
   }
 
   // For Responsive
-  &__smScreen {
+  @include smScreen {
     .latestNews__wrapper {
       width: 85%;
     }
@@ -160,7 +160,7 @@
 .testimonial {
   width: 100%;
   height: auto;
-  background-color: #f2f2f2;
+  background-color: $gray-100;
   padding: 60px 0px;
   &__wrapper {
     width: 95%;
@@ -168,7 +168,7 @@
   }
 
   // For Responsive
-  &__smScreen {
+  @include smScreen {
     .testimonial__wrapper {
       width: 85%;
     }
@@ -187,7 +187,7 @@
   }
 
   // For Responsive
-  &__smScreen {
+  @include smScreen {
     .company__wrapper {
       width: 85%;
     }
@@ -198,7 +198,7 @@
 .newsLetter {
   width: 100%;
   height: auto;
-  background-color: #f2f2f2;
+  background-color: #f7f7f7;
   padding: 60px 0px;
   &__wrapper {
     width: 95%;
@@ -206,7 +206,7 @@
   }
 
   // For Responsive
-  &__smScreen {
+  @include smScreen {
     .newsLetter__wrapper {
       width: 85%;
     }

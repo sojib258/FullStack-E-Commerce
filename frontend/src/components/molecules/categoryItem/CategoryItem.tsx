@@ -1,4 +1,3 @@
-import useResponsive from "@/hooks/useResponsive";
 import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Image from "next/image";
@@ -8,11 +7,8 @@ interface CategoryItemProps {
   text: string;
 }
 const CategoryItem: React.FC<CategoryItemProps> = ({ imgSrc, text }) => {
-  const { smScreen } = useResponsive();
   return (
-    <Box
-      className={`${styles.category} ${smScreen && styles.category__smScreen}`}
-    >
+    <Box className={styles.category}>
       <Image
         className={styles.category__img}
         width={200}

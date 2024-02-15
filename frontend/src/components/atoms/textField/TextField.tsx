@@ -1,5 +1,5 @@
+"use client";
 import styles from "./textField.module.scss";
-
 interface textFieldProps {
   type: "text" | "number" | "email" | "password";
   placeholder?: string;

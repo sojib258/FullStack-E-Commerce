@@ -1,4 +1,4 @@
-@import "../../../styles/all.module.scss";
+@import "@/styles/global.module.scss";
 .category {
   min-width: 100px;
   max-width: 95%;
@@ -40,7 +40,7 @@
     line-height: 150%;
   }
   // For Responsive
-  &__smScreen {
+  @include smScreen {
     .category__text {
       font-size: 16px;
     }

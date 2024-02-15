@@ -1,11 +1,9 @@
 import NewsCart from "@/components/molecules/newsCart/NewsCart";
-import useResponsive from "@/hooks/useResponsive";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import styles from "./latestNews.module.scss";
 const LatestNews = () => {
-  const { smScreen } = useResponsive();
   const news = [
     {
       imgSrc: "/img/7.jpg",
@@ -40,7 +38,7 @@ const LatestNews = () => {
     },
   ];
   return (
-    <Box className={`${styles.news} ${smScreen && styles.news__smScreen}`}>
+    <Box className={styles.news}>
       <Typography className={styles.news__headText}>Latest News</Typography>
       <Grid container spacing={2}>
         {news.map((item, index) => (

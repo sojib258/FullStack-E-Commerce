@@ -1,4 +1,4 @@
-@import "../../../styles/all.module.scss";
+@import "@/styles/global.module.scss";
 .testimonialCart {
   width: 100%;
   height: 100%;
@@ -11,11 +11,8 @@
     margin-bottom: 16px;
   }
   &__text {
-    color: $gray4;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%; /* 21px */
+    @extend %body-sm-400;
+    color: $gray-800;
     margin-bottom: 16px;
   }
   &__avatar {
@@ -23,14 +20,16 @@
     margin-right: 12px;
   }
   &__name {
-    color: $gray5;
+    @extend %body-md-500;
+    color: $gray-1000;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
     line-height: 150%; /* 24px */
   }
   &__jobTitle {
-    color: $gray3;
+    @extend %body-sm-400;
+    color: $gray-500;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -61,7 +60,4 @@
       font-size: 12px;
     }
   }
-  //   &__downSmScreen {
-  //     max-width: 100%;
-  //   }
 }

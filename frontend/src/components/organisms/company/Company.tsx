@@ -1,9 +1,7 @@
-import useResponsive from "@/hooks/useResponsive";
 import Box from "@mui/material/Box";
 import Image from "next/image";
 import styles from "./company.module.scss";
 const Company = () => {
-  const { smScreen } = useResponsive();
   const companyLogo = [
     {
       imgSrc: "/img/14.png",
@@ -50,9 +48,7 @@ const Company = () => {
     },
   };
   return (
-    <Box
-      className={`${styles.company} ${smScreen && styles.company__smScreen}`}
-    >
+    <Box className={styles.company}>
       {companyLogo.map((item, index) => (
         <Box key={index} className={styles.company__item}>
           <Image

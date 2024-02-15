@@ -1,9 +1,9 @@
-@import "../../../styles/all.module.scss";
+@import "@/styles/global.module.scss";
 .footer {
   width: 100%;
   height: auto;
   padding: 30px 16px;
-  background-color: $gray5;
+  background-color: $gray-1000;
   &__itemWrapper {
     margin-bottom: 50px;
     text-align: center;
@@ -13,7 +13,7 @@
     margin-bottom: 16px;
   }
   &__description {
-    color: $gray2;
+    color: $gray-600;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -84,9 +84,19 @@
     flex-direction: column;
     line-height: 34px;
   }
+  &__link {
+    @extend %body-sm-400;
+    color: $gray-500;
+    text-decoration: none;
+    margin-bottom: 6px;
+    transition: 0.2s;
+    &:hover {
+      color: $white;
+    }
+  }
 
   // For Responsive
-  &__smallScreen {
+  @include smScreen {
     padding: 30px 24px;
     .footer__itemOne {
       text-align: left;
@@ -117,7 +127,7 @@
     }
   }
 
-  &__mediumScreen {
+  @include mdScreen {
     .footer__itemFour {
       text-align: center;
     }
@@ -126,7 +136,7 @@
     }
   }
 
-  &__largeScreen {
+  @include lgScreen {
     .footer__itemFour {
       text-align: left;
     }

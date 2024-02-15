@@ -1,3 +1,4 @@
+"use client";
 import TestimonialCart from "@/components/molecules/testimonialCart/TestimonialCart";
 import useResponsive from "@/hooks/useResponsive";
 import Box from "@mui/material/Box";
@@ -79,8 +80,8 @@ const Testimonial = () => {
   return (
     <Box
       className={`testimonial ${styles.testimonial} ${
-        smScreen && styles.testimonial__smScreen
-      } ${smScreen && "testimonial__smScreen"}`}
+        smScreen && "testimonial__smScreen"
+      }`}
     >
       <Typography className={styles.testimonial__headText}>
         Client Testimonial
