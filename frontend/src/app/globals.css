@@ -8,7 +8,7 @@ p,
 span,
 button,
 input {
-  font-family: "__Poppins_cd4a41", "__Poppins_Fallback_cd4a41" !important;
+  font-family: var(--font-poppins) !important;
 }
 
 h1,
@@ -17,5 +17,5 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "__Poppins_cd4a41", "__Poppins_Fallback_cd4a41" !important;
+  font-family: var(--font-poppins) !important;
 }

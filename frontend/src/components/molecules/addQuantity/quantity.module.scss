@@ -3,16 +3,16 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 1px solid $gray2;
+  border: 1px solid $gray-200;
   width: 148px;
   height: auto;
   padding: 4px 8px;
   border-radius: 55px;
   &__btn {
-    background-color: $gray1;
-    color: $gray5;
+    background-color: $gray-200;
+    color: $gray-1000;
     &:hover {
-      background-color: $gray2;
+      background-color: $gray-400;
     }
   }
   &__value {

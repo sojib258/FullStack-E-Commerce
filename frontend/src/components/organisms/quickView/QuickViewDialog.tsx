@@ -1,3 +1,4 @@
+"use client";
 import CloseIcon from "@mui/icons-material/Close";
 import Box from "@mui/material/Box";
 import Dialog from "@mui/material/Dialog";
@@ -56,7 +57,6 @@ const QuickViewDialog: React.FC<quickViewProps> = ({
               ratingValue={ratingValue}
               category={category}
               discountPrice={discountPrice}
-              open={open}
               images={images}
             />
           </Box>

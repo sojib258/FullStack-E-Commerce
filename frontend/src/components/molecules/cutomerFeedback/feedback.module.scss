@@ -1,0 +1,36 @@
+@import "@/styles/global.module.scss";
+.feedback {
+  width: 100%;
+  height: auto;
+  padding-bottom: 20px;
+  border-bottom: 1px solid $gray-200;
+  &__topSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  &__userSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__userImg {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 12px;
+  }
+  &__userText {
+    @extend %body-sm-500;
+    color: $gray-1000;
+  }
+  &__timeText {
+    @extend %body-sm-400;
+    color: $gray-500;
+  }
+  &__description {
+    @extend %body-sm-400;
+    color: $gray-600;
+  }
+}

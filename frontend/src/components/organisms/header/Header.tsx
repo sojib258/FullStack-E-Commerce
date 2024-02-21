@@ -14,7 +14,7 @@ const Header: React.FC = () => {
   const { mdScreen, downSmScreen } = useResponsive();
   return (
     <Box className={styles.navbar}>
-      <AppBar position="static">
+      <AppBar position="sticky">
         <Toolbar>
           {!mdScreen && (
             <IconButton

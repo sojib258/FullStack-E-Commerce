@@ -122,10 +122,24 @@
 }
 
 /* This style will apply checkbox width, height in smallScreen */
-.login_smallScreen .MuiFormGroup-root .css-i4bv87-MuiSvgIcon-root,
+.login__smallScreen .MuiFormGroup-root .css-i4bv87-MuiSvgIcon-root,
 .register_smallScreen .MuiFormGroup-root .css-i4bv87-MuiSvgIcon-root {
   width: 1rem;
   height: 1rem;
+}
+.loginDialog .MuiDialog-paper,
+.registerDialog .MuiDialog-paper {
+  border-radius: 20px;
+  width: 600px;
+  align-items: center;
+}
+
+/* This styles for background overlay color when open login/registration form */
+.loginDialog .MuiModal-backdrop {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.registerDialog .MuiModal-backdrop {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 /* This style will apply on label inside checkbox in login and register component */

@@ -1,3 +1,4 @@
+"use client";
 import NewsletterForm from "@/components/molecules/newsLetterFrom/NewsletterForm";
 import SocialIcon from "@/components/molecules/socialIcons/SocialIcon";
 import Box from "@mui/material/Box";

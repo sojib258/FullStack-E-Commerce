@@ -1,3 +1,4 @@
+"use client";
 import Button from "@/components/atoms/button/Button";
 import Stock from "@/components/atoms/stockStatus/Stock";
 import Quantity from "@/components/molecules/addQuantity/Quantity";
@@ -27,13 +28,13 @@ interface Image {
 
 interface quickViewProps {
   discountPrice?: number;
-  open: boolean;
   price: number;
   productTitle: string;
   description?: string;
   ratingValue?: number;
   category?: string;
   images: Image[];
+  customStyle?: object;
 }
 
 const QuickView: React.FC<quickViewProps> = ({
@@ -43,8 +44,8 @@ const QuickView: React.FC<quickViewProps> = ({
   ratingValue,
   category,
   discountPrice,
-  open,
   images,
+  customStyle,
 }) => {
   const [imgSrc, setImgSrc] = useState(images[0].url);
   const theme = useTheme();
@@ -68,6 +69,7 @@ const QuickView: React.FC<quickViewProps> = ({
           mdToLg && styles.quickView__mdToLg_screen
         } ${downSmScreen && styles.quickView__downSmallScreen}
             ${downMdScreen && styles.quickView__downMediumScreen} quickView`}
+        style={customStyle}
       >
         {/* Left Slider Section */}
         <Grid item xs={12} md={6} className={styles.quickView__leftContent}>
@@ -97,7 +99,10 @@ const QuickView: React.FC<quickViewProps> = ({
           </Typography>
 
           {/* Rating Component */}
-          <Stack direction={"row"}>
+          <Stack
+            direction={"row"}
+            justifyContent={{ xs: "center", md: "flex-start" }}
+          >
             <Rating
               customStyle={{ maxWidth: "200px" }}
               value={ratingValue}

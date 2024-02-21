@@ -1,3 +1,4 @@
+"use client";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import IconButton from "@mui/material/IconButton";
@@ -12,7 +13,7 @@ interface quantityProps {
 }
 
 const Quantity: React.FC<quantityProps> = ({ mediumScreen, smallScreen }) => {
-  const [value, setValue] = useState<number>(0);
+  const [value, setValue] = useState<number>(1);
   const handleIncrementValue = () => {
     setValue(value + 1);
   };

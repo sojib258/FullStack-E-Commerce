@@ -1,0 +1,30 @@
+@import "@/styles/global.module.scss";
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__btn {
+    @extend %body-md-500;
+    color: $gray-600;
+    text-transform: none;
+    position: relative;
+  }
+  &__btn.active {
+    color: $gray-1000;
+  }
+  &__btn.active::before {
+    color: $gray-1000;
+    position: absolute;
+    content: "";
+    bottom: -10px;
+    left: 0px;
+    width: 100%;
+    height: 3px;
+    background-color: $primary;
+  }
+  @include downSmScreen {
+    &__btn {
+      font-size: 12px;
+    }
+  }
+}

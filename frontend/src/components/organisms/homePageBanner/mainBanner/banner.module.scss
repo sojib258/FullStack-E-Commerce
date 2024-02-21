@@ -1,7 +1,7 @@
 @import "@/styles/global.module.scss";
 .banner {
   height: 100%;
-  background-color: #edf2ee;
+  background-color: $gray-100;
   padding: 30px 45px 130px 45px;
   &__Img {
     width: 100%;

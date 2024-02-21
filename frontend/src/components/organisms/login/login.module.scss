@@ -1,18 +1,15 @@
 @import "@/styles/global.module.scss";
 .login {
-  max-width: 520px;
-  padding: 24px 24px 32px 24px;
+  width: 500px;
+  height: 400px;
+  padding: 0px 30px;
   border-radius: 8px;
-  border: 1px solid $gray1;
   background: $white;
-  box-shadow: 0px 0px 56px 0px rgba(0, 38, 3, 0.08);
   text-align: center;
   &__text {
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 120%;
-    margin-bottom: 20px;
+    @extend %heading-05-600;
+    color: $gray-1000;
+    margin-bottom: 30px;
   }
   &__checkboxGroup {
     display: flex;
@@ -20,21 +17,19 @@
     flex-direction: row;
     margin-bottom: 20px;
   }
+  &__remember {
+    @extend %body-sm-400;
+    color: $gray-700;
+  }
   &__forget {
+    @extend %body-sm-400;
     color: $primary;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
     background-color: transparent;
     text-transform: none;
   }
   &__haveAccount {
-    color: $gray4;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
+    @extend %body-sm-400;
+    color: $gray-700;
     display: flex;
     align-items: center;
   }
@@ -50,7 +45,11 @@
   }
 
   // For Small Screen
-  &_smallScreen {
+  @include downSmScreen {
+    & {
+      width: 100%;
+      padding: 0px;
+    }
     .login__text {
       font-size: 26px;
     }

@@ -1,3 +1,4 @@
+import Login from "@/components/organisms/login/Login";
 import useResponsive from "@/hooks/useResponsive";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import PersonIcon from "@mui/icons-material/Person";
@@ -7,10 +8,18 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./navbarIcon.module.scss";
 const NavbarIcon: React.FC = () => {
   const { downSmScreen } = useResponsive();
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(!open);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <Box
@@ -53,6 +62,7 @@ const NavbarIcon: React.FC = () => {
 
       {/* Login Button ================= */}
       <Button
+        onClick={handleOpen}
         sx={{
           backgroundColor: "#00b207",
           fontSize: { xs: ".7rem", sm: ".8rem", md: ".9rem" },
@@ -64,6 +74,7 @@ const NavbarIcon: React.FC = () => {
         <PersonIcon sx={{ fontSize: "1.2rem" }} />
         Login
       </Button>
+      {open && <Login handleClose={handleClose} open={open} />}
     </Box>
   );
 };

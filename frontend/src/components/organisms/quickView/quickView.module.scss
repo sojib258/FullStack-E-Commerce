@@ -6,6 +6,7 @@
   background-color: $white;
   display: flex;
   flex-direction: row;
+  margin: 0px auto;
   &__imagesWrapper {
     display: flex;
     justify-content: center;
@@ -25,12 +26,10 @@
     right: 8px;
   }
   &__productTitle {
+    @extend %heading-04-600;
     display: flex;
     align-items: center;
-    color: $gray5;
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 600;
+    color: $gray-1000;
     line-height: 120%;
     margin-bottom: 12px;
   }
@@ -38,11 +37,11 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    border-bottom: 1px solid $gray1;
+    border-bottom: 1px solid $gray-100;
     padding: 20px 0px;
   }
   &__priceCondition {
-    color: $gray3;
+    color: $gray-400;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -78,47 +77,40 @@
     margin-left: 15px;
   }
   &__description {
-    color: $gray3;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
+    color: $gray-600;
+    @extend %body-sm-400;
     line-height: 150%;
   }
   &__wishListIcon {
     color: $primary;
-    background-color: $gray1;
+    background-color: $gray-100;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 15px;
     &:hover {
-      background-color: $greenGray1;
+      background-color: $green-gray-100;
     }
   }
   &__cartButtonBox {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid $gray1;
+    border: 1px solid $gray-100;
     border-left: none;
     border-right: none;
     margin: 24px 0px;
     box-shadow: 0px 1px 0px 0px #e5e5e5, 0px -1px 0px 0px #e5e5e5;
   }
   &__categoryTitle {
-    color: $gray5;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 150%;
+    @extend %body-sm-500;
+    color: $gray-1000;
     margin-bottom: 12px;
   }
   &__categoryValue {
-    color: $gray3;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
+    @extend %body-sm-400;
+    color: $gray-600;
+    margin-left: 6px;
   }
   &__shareItems {
     display: flex;
@@ -126,11 +118,8 @@
     align-items: center;
   }
   &__shareText {
-    color: $gray5;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
+    @extend %body-sm-500;
+    color: $gray-1000;
     margin-right: 10px;
   }
 
@@ -138,7 +127,7 @@
   &.quickView__mdToLg_screen {
     width: 800px;
     .quickView__productTitle {
-      font-size: 32px;
+      font-size: 24px;
     }
     .quickView__wishListIcon {
       padding: 10px;
@@ -148,6 +137,16 @@
   // For Small Screen
   &.quickView__downMediumScreen {
     width: 500px;
+    .quickView__productTitle {
+      font-size: 24px;
+      text-align: center;
+    }
+    .quickView__prices {
+      justify-content: center;
+    }
+    .quickView__description {
+      text-align: center;
+    }
   }
   &.quickView__downSmallScreen {
     width: 100%;
