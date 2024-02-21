@@ -102,7 +102,7 @@ const Login: React.FC<LoginProps> = ({ handleClose, open }) => {
                 Forget Password?
               </Button>
               <Typography className={styles.login__haveAccount}>
-                Don't have account?
+                Don&apos;t have account?
                 <Button
                   onClick={handleRegisterOpen}
                   className={styles.login__registerBtn}

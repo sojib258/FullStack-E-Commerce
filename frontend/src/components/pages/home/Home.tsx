@@ -7,7 +7,7 @@ import ProductsBanner from "@/components/organisms/homePageBanner/productsBanner
 import LatestNews from "@/components/organisms/latestNews/LatestNews";
 import Featured from "@/components/organisms/products/featured/Featured";
 import HotDeals from "@/components/organisms/products/hotDeals/HotDeals";
-import PopularProducts from "@/components/organisms/products/popular/Products";
+import PopularProducts from "@/components/organisms/products/popular/ProductProvider";
 import Testimonial from "@/components/organisms/testimonial/Testimonial";
 import Box from "@mui/material/Box";
 import styles from "./home.module.scss";

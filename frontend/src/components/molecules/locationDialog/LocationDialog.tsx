@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Dialog from "@mui/material/Dialog";
 import IconButton from "@mui/material/IconButton";
 import { styled } from "@mui/material/styles";
-import Location from "../location/Location";
+// import Location from "../location/Location";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -46,7 +46,9 @@ const LocationDialog: React.FC<locationDialogProps> = ({
             <CloseIcon />
           </IconButton>
           {/* Location Component===================== */}
-          <Location />
+          {/* <Location /> */}
+          {/* TODO: */}
+          <p style={{ padding: "40px" }}>I am working on it... Please wait</p>
         </Box>
       </BootstrapDialog>
     </>

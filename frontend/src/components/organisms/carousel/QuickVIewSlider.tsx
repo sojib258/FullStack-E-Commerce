@@ -1,6 +1,6 @@
 "use client";
 import Box from "@mui/material/Box";
-import Magnifier from "react-magnifier";
+import Image from "next/image";
 import styles from "./quickViewSlider.module.scss";
 
 interface SliderProps {
@@ -11,11 +11,12 @@ const Slider: React.FC<SliderProps> = ({ imageSrc }) => {
   return (
     <>
       <Box className={styles.slider}>
-        <Magnifier
-          zoomFactor={1}
-          src={`${process.env.NEXT_PUBLIC_DOMAIN_NAME}${imageSrc}`}
-          width={"100%"}
-          className={styles.slider__mainImage}
+        <Image
+          className={styles.slider__image}
+          width={600}
+          height={600}
+          alt="Product Image"
+          src={imageSrc}
         />
       </Box>
     </>

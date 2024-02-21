@@ -1,4 +1,3 @@
-"use client";
 import Button from "@/components/atoms/button/Button";
 import ProductCart from "@/components/molecules/productCart/ProductCart";
 import { fetchItems } from "@/store/feature/product/ProductSlice";
@@ -19,7 +18,7 @@ const Products = () => {
 
   useEffect(() => {
     dispatch(fetchItems());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Box className={styles.products}>
