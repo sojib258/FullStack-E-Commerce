@@ -4,10 +4,10 @@ import { GlassMagnifier } from "react-image-magnifiers";
 import styles from "./quickViewSlider.module.scss";
 
 interface SliderProps {
-  imageSrc: string;
+  imageSrc?: string;
 }
 
-const Slider: React.FC<SliderProps> = ({ imageSrc }) => {
+const QuickViewSlider: React.FC<SliderProps> = ({ imageSrc }) => {
   console.log("ImageSrc", imageSrc);
   return (
     <>
@@ -25,4 +25,4 @@ const Slider: React.FC<SliderProps> = ({ imageSrc }) => {
   );
 };
 
-export default Slider;
+export default QuickViewSlider;
