@@ -16,7 +16,7 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Image from "next/image";
 import { useState } from "react";
-import QuickViewSlider from "../carousel/QuickViewSlider";
+// import QuickViewSlider from "../carousel/QuickViewSlider";
 import styles from "./quickView.module.scss";
 interface Image {
   id: string | number;
@@ -73,7 +73,7 @@ const QuickView: React.FC<quickViewProps> = ({
       >
         {/* Left Slider Section */}
         <Grid item xs={12} md={6} className={styles.quickView__leftContent}>
-          <QuickViewSlider imageSrc={imgSrc} />
+          {/* <QuickViewSlider imageSrc={imgSrc} /> */}
           <Box className={styles.quickView__imagesWrapper}>
             {images.map((item) => (
               <Image

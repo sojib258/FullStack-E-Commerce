@@ -1,6 +1,6 @@
 import Footer from "@/components/organisms/footer/Footer";
 import Header from "@/components/organisms/header/Header";
-import Newsletter from "@/components/organisms/newsLetter/NewsLetter";
+// import Newsletter from "@/components/organisms/newsLetter/NewsLetter";
 import Box from "@mui/material/Box";
 import { ReactNode } from "react";
 import styles from "./defaultTemplate.module.scss";
@@ -16,9 +16,7 @@ const DefaultTemplate: React.FC<DefaultTemplateProps> = ({ children }) => {
       <main>{children}</main>
       {/* NewsLetter Area */}
       <Box component={"section"} className={styles.newsLetter}>
-        <Box className={styles.newsLetter__wrapper}>
-          <Newsletter />
-        </Box>
+        <Box className={styles.newsLetter__wrapper}>{/* <Newsletter /> */}</Box>
       </Box>
       <Footer />
     </>
